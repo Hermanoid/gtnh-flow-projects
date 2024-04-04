@@ -22,7 +22,7 @@
   eut: 480
   dur: 45
 - m: sifter
-  tier: HV
+  tier: IV
   I:
     diluted monazite rare earth mud: 1000
   O:
@@ -34,7 +34,7 @@
   eut: 240
   dur: 20
 - m: mixer
-  tier: HV
+  tier: IV
   I:
     monazite sulfate dust: 1
     water: 6000
@@ -52,7 +52,7 @@
   eut: 480
   dur: 216
 - m: sifter
-  tier: HV
+  tier: IV
   I:
     acidic monazite powder dust: 1
   O:
@@ -61,7 +61,7 @@
   eut: 256
   dur: 30
 - m: chemical bath
-  tier: HV
+  tier: IV
   I:
     monazite rare earth filtrate dust: 1
     ammonium nitrate solution: 320
@@ -70,7 +70,7 @@
   eut: 240
   dur: 6
 - m: sifter
-  tier: HV
+  tier: IV
   I:
     neutralized monazite rare earth filtrate dust: 1
   O:
@@ -79,7 +79,7 @@
   eut: 480
   dur: 40
 - m: EBF
-  tier: LuV
+  tier: IV
   coils: HSS-G
   heat: 1200
   I:
@@ -98,7 +98,7 @@
   eut: 480
   dur: 25
 - m: mixer
-  tier: MV
+  tier: IV
   I:
     water cell: 1
     nitrated monazite rare earth concentrate: 1000
@@ -108,7 +108,7 @@
   eut: 120
   dur: 10
 - m: sifter
-  tier: HV
+  tier: IV
   I:
     nitric-leached monazite mixture: 1000
   O:
@@ -125,16 +125,16 @@
   eut: 240
   dur: 5
 - m: electromagnetic separator
-  tier: EV
+  tier: IV
   I:
     cooled monazite rare earth concentrate dust: 1
   O:
-    europium oxide dust: 0.05
+    europium III oxide dust: 0.05
     monaziterarer earth sediment dust: 0.9
   eut: 1920
   dur: 30
 - m: EBF
-  tier: LuV
+  tier: IV
   coils: HSS-G
   heat: 1200
   I:
@@ -145,7 +145,7 @@
   eut: 480
   dur: 25
 - m: mixer
-  tier: HV
+  tier: IV
   I:
     salt: 1
     heterogenous halogenic monazite rare earth mixture dust: 1
@@ -155,7 +155,7 @@
   eut: 240
   dur: 10
 - m: centrifuge
-  tier: EV
+  tier: IV
   I:
     saturated monazite rare earth mixture dust: 4
   O:
@@ -164,7 +164,7 @@
   eut: 1920
   dur: 157.5
 - m: sifter
-  tier: EV
+  tier: IV
   I:
     samaric residiue dust: 3
   O:
@@ -173,9 +173,9 @@
   eut: 1920
   dur: 6.65
   target:
-    samarium dust: 1
+    samarium dust: 0.1
 - m: centrifuge
-  tier: EV
+  tier: IV
   I:
     tiny pile of hafnia-zirconia blend dust: 9
   O:
@@ -203,7 +203,7 @@
   eut: 30
   dur: 10
 - m: EBF
-  tier: LuV
+  tier: IV
   coils: HSS-G
   heat: 2700
   I:
@@ -224,7 +224,7 @@
   eut: 30
   dur: 15
 - m: EBF
-  tier: LuV
+  tier: IV
   heat: 3400
   coils: HSS-G
   I:
@@ -257,7 +257,7 @@
 - m: EBF
   coils: HSS-G
   heat: 4500
-  tier: LuV
+  tier: IV
   I:
     magnesium: 2
     zirconium tetrachloride solution: 1000
@@ -269,7 +269,7 @@
 - m: EBF
   coils: HSS-G
   heat: 1500
-  tier: LuV
+  tier: IV
   I:
     thorium-phosphate cake dust: 1
   O:
@@ -277,7 +277,7 @@
   eut: 120
   dur: 15
 - m: thermal centrifuge
-  tier: HV
+  tier: EV
   I:
     thorium-phosphate concentrate dust: 1
   O:
@@ -309,7 +309,7 @@
 - m: EBF
   coils: HSS-G
   heat: 800
-  tier: LuV
+  tier: IV
   I:
     cerium oxalate dust: 1
   O:
@@ -326,7 +326,7 @@
   eut: 60
   dur: 3.5
 - m: chemical bath
-  tier: MV
+  tier: IV
   I:
     uraniumfiltrate dust: 1
     hydrofluoric acid: 100
@@ -335,7 +335,7 @@
   eut: 120
   dur: 18
 - m: sifter
-  tier: LV
+  tier: IV
   I:
     neutralized uranium filtrate dust: 1
   O:
@@ -343,22 +343,23 @@
     uranium-235: 0.5
   eut: 30
   dur: 50
+
 - m: LCR
-  tier: LuV
+  tier: IV
   I:
-    sulfuric acid: 1000
-    europium oxide dust: 1
+    magnesiumchloride: 6
+    sodium: 4
   O:
-    europium sulfide dust: 1
-    water1: 1000
-  eut: 8400
-  dur: 15
-- m: electrolyzer
-  tier: ZPM
+    magnesium: 2
+    salt: 8
+  eut: 480
+  dur: 20
+- m: LCR
+  tier: IV
   I:
-    europium sulfide dust: 2
+    hydrogen gas: 9000
+    fluorine gas: 9000
   O:
-    europium: 1
-    sulfur: 1
-  eut: 33000
-  dur: 30
+    hydrofluoric acid: 9000
+  eut: 480
+  dur: 0.35

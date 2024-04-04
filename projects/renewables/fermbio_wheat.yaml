@@ -1,0 +1,100 @@
+- m: large processing factory
+  tier: IV
+  I:
+    wheat: 8
+  O:
+    plantball: 1
+  eut: 2
+  dur: 15
+  # number: 1
+
+- m: maceration stack
+  tier: IV
+  I:
+    plantball: 2
+  O:
+    plant mass: 2.75
+  eut: 30
+  dur: 10
+
+- m: industrial centrifuge
+  tier: IV
+  I:
+    plant mass: 1
+  O:
+    bio chaff: 1
+  eut: 4
+  dur: 15
+
+- m: maceration stack
+  tier: IV
+  I:
+    bio chaff: 1
+  O:
+    dirt: 1
+  target:
+    dirt: 10
+  eut: 2
+  dur: 15
+  
+
+- m: industrial coke oven
+  tier: IV
+  I:
+    bio chaff: 1
+  O:
+    fermented biomass: 1500
+  eut: 10
+  dur: 8
+
+- m: distillation tower
+  tier: iV
+  I:
+    fermented biomass: 1000
+  O:
+    methane: 600
+    carbon dioxide: 400
+    ammonia: 100
+    methanol: 150
+    ethanol: 150
+    water: 375
+    acetic acid: 25
+    IC2 fertiliser: 1
+  # target:
+  #   ammonia: 220
+  eut: 180
+  dur: 3.75
+  number: 2
+
+
+# - m: large chemical reactor
+#   tier: HV
+#   I:
+#     methane: 5000
+#   O:
+#     carbon dioxide: 5000
+#     hydrogen: 20000
+#   eut: 480
+#   dur: 8.75
+#   target:
+#     hydrogen: 615.3846
+# - m: electrolyzer
+#   tier: MV
+#   I:
+#     methanol: 1000
+#   O:
+#     carbon dust: 1
+#     hydrogen: 4000
+#     oxygen: 1000
+#   eut: 90
+#   dur: 7.2
+# - m: electrolyzer
+#   tier: MV
+#   I:
+#     ethanol: 1000
+#   O:
+#     carbon dust: 2
+#     hydrogen: 6000
+#     oxygen: 1000
+#   eut: 90
+#   dur: 7.2

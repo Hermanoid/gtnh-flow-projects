@@ -1,4 +1,14 @@
-- m: disgester
+- m: LCR
+  tier: EV
+  I:
+    ammonia: 1000
+    oxygen: 4000
+  O:
+    nitric acid: 1000
+    water out: 1000
+  eut: 30
+  dur: 16
+- m: digester
   tier: EV
   I:
     crushed monazite ore: 2
@@ -8,9 +18,8 @@
     muddy monazite rare earth solution: 400
   eut: 1920
   dur: 20
-  number: 10
 - m: dissolution tank
-  tier: HV
+  tier: EV
   I:
     saltpeter: 9
     muddy monazite rare earth solution: 9000
@@ -22,8 +31,8 @@
     monazite dust: 2
   eut: 480
   dur: 405
-- m: sifter
-  tier: HV
+- m: industrial sifter
+  tier: EV
   I:
     diluted monazite rare earth mud: 1000
   O:
@@ -35,7 +44,7 @@
   eut: 240
   dur: 20
 - m: mixer
-  tier: HV
+  tier: EV
   I:
     monazite sulfate dust: 1
     water: 6000
@@ -44,7 +53,25 @@
   eut: 400
   dur: 24
 - m: LCR
-  tier: HV
+  tier: EV
+  I:
+    ammonia: 1000
+    nitric acid: 1000
+  O:
+    ammonium nitrate solution: 1000
+  eut: 400
+  dur: 1.5
+- m: LCR
+  tier: EV
+  I:
+    ammonia: 1000
+    hydrochloric acid: 1000
+  O:
+    ammonium chloride: 1000
+  eut: 400
+  dur: 1.5
+- m: LCR
+  tier: IV
   I:
     diluted monazite sulfate: 9000
     ammonium nitrate solution: 1800
@@ -52,8 +79,28 @@
     acidic monazite powder dust: 3
   eut: 480
   dur: 216
-- m: sifter
-  tier: HV
+# - m: LCR
+#   tier: IV
+#   I:
+#     hydrogen: 9000
+#     chlorine: 9000
+#   O:
+#     hydrochloric acid: 9000
+#   eut: 480
+#   dur: 0.35
+
+- m: LCR
+  tier: EV
+  I:
+    hydrogen: 9000
+    fluorine: 9000
+  O:
+    hydrofluoric acid: 9000
+  eut: 480
+  dur: 0.35
+
+- m: industrial sifter
+  tier: EV
   I:
     acidic monazite powder dust: 1
   O:
@@ -62,7 +109,7 @@
   eut: 256
   dur: 30
 - m: chemical bath
-  tier: HV
+  tier: EV
   I:
     monazite rare earth filtrate dust: 1
     ammonium nitrate solution: 320
@@ -70,8 +117,8 @@
     neutralized monazite rare earth filtrate dust: 1
   eut: 240
   dur: 6
-- m: sifter
-  tier: HV
+- m: industrial sifter
+  tier: EV
   I:
     neutralized monazite rare earth filtrate dust: 1
   O:
@@ -80,7 +127,7 @@
   eut: 480
   dur: 40
 - m: chemical bath
-  tier: HV
+  tier: EV
   I:
     uraniumfiltrate dust: 1
     hydrofluoric acid: 100
@@ -88,8 +135,8 @@
     neutralized uranium filtrate dust: 1
   eut: 120
   dur: 18
-- m: sifter
-  tier: HV
+- m: industrial sifter
+  tier: EV
   I:
     neutralized uranium filtrate dust: 1
   O:
@@ -98,7 +145,7 @@
   eut: 30
   dur: 50
 - m: EBF
-  tier: HV
+  tier: EV
   I:
     monazite rare earth hydroxide concentrate dust: 1
   O:
@@ -108,7 +155,7 @@
   heat: 1200
   coils: nichrome
 - m: LCR
-  tier: HV
+  tier: EV
   I:
     dried monazite rare earth concentrate dust: 1
     nitric acid: 500
@@ -117,7 +164,7 @@
   eut: 480
   dur: 25
 - m: mixer
-  tier: HV
+  tier: EV
   I:
     water: 1000
     nitrogenated monazite rare earth concentrate: 1000
@@ -125,8 +172,8 @@
     nitric-leached monazite mixture: 1000
   eut: 120
   dur: 10
-- m: sifter
-  tier: HV
+- m: industrial sifter
+  tier: EV
   I:
     nitric-leached monazite mixture: 1000
   O:
@@ -135,19 +182,19 @@
   eut: 240
   dur: 20
 - m: LCR
-  tier: HV
+  tier: EV
   I:
     cerium dioxide dust: 3
     ammonium chloride: 3000
     hydrogen: 1000
   O:
     cerium chloride dust: 4
-    '[recycle] ammonia': 3000
+    ammonia out: 3000
     steam: 2000
   eut: 450
   dur: 15
 - m: LCR
-  tier: HV
+  tier: EV
   I:
     cerium chloride dust: 8
     oxalate: 3000
@@ -157,7 +204,7 @@
   eut: 450
   dur: 15
 - m: EBF
-  tier: HV
+  tier: EV
   I:
     cerium oxalate dust: 5
     carbon dust: 3
@@ -169,72 +216,51 @@
   heat: 800
   coils: nichrome
 - m: electrolyzer
-  tier: HV
+  tier: EV
   I:
     cerium (III) oxide dust: 5
   O:
     cerium dust: 2
-    '[recycle] oxygen': 3000
+    oxygen out: 3000
   eut: 60
   dur: 3.5
-- m: LCR
-  tier: HV
-  I:
-    oxygen: 45000
-    ethanol: 9000
-    vanadium pentoxide dust: 1
-  O:
-    oxalate: 9000
-  eut: 240
-  dur: 202.5
-- m: EBF
-  tier: HV
-  I:
-    vanadium dust: 2
-    oxygen: 5000
-  O:
-    vanadium pentoxide dust: 7
-  eut: 120
-  dur: 10
-  heat: 2500
-  coils: nichrome
 - m: vacuum freezer
-  tier: HV
+  tier: EV
   I:
     nitric monazite leached concentrate: 1000
   O:
     cooled monazite rare earth concentrate dust: 1
   eut: 240
   dur: 5
-- m: electromagnetic separator
-  tier: EV
+- m: large processing factory
+  tier: IV
   I:
     cooled monazite rare earth concentrate dust: 1
   O:
     monaziterarer earth sediment dust: 0.9
-    europium oxide dust: 0.1
+    europium III oxide dust: 0.1
   eut: 1920
   dur: 30
-- m: LCR
-  tier: LuV
-  I:
-    hydrogen sulfide: 1000
-    europium oxide dust: 2
-  O:
-    europium sulfide dust: 2
-  eut: 8400
-  dur: 15
-- m: electrolyzer
-  tier: ZPM
-  I:
-    europium sulfide dust: 2
-  O:
-    europium dust: 1
-    '[recycle] sulfur dust': 1
-  eut: 33000
-  dur: 30
+# - m: LCR
+#   tier: LuV
+#   I:
+#     hydrogen sulfide: 1000
+#     europium oxide dust: 2
+#   O:
+#     europium sulfide dust: 2
+#   eut: 8400
+#   dur: 15
+# - m: electrolyzer
+#   tier: ZPM
+#   I:
+#     europium sulfide dust: 2
+#   O:
+#     europium dust: 1
+#     '[recycle] sulfur dust': 1
+#   eut: 33000
+#   dur: 30
 - m: EBF
-  tier: HV
+  tier: EV
   I:
     monaziterarer earth sediment dust: 1
     chlorine: 1000
@@ -245,7 +271,7 @@
   heat: 1200
   coils: nichrome
 - m: mixer
-  tier: HV
+  tier: EV
   I:
     heterogenous halogenic monazite rare earth mixture dust: 1
     salt: 1
@@ -254,8 +280,8 @@
     saturated monazite rare earth dust: 1
   eut: 240
   dur: 10
-- m: centrifuge
-  tier: EV
+- m: industrial centrifuge
+  tier: IV
   I:
     saturated monazite rare earth dust: 1
   O:
@@ -263,13 +289,15 @@
     chloromethane: 400
   eut: 1920
   dur: 157.5
-- m: sifter
+- m: industrial sifter
   tier: EV
   I:
     samaric residue dust: 3
   O:
     samarium dust: 2
     gadolinium dust: 1
+  target:
+    samarium dust: 0.1
   eut: 1920
   dur: 6.65
 - m: EBF
@@ -283,7 +311,7 @@
   heat: 1500
   coils: nichrome
 - m: thermal centrifuge
-  tier: EV
+  tier: IV
   I:
     thorium-phosphate concentrate dust: 1
   O:
@@ -292,16 +320,16 @@
   eut: 480
   dur: 10
 - m: electrolyzer
-  tier: EV
+  tier: IV
   I:
     thorianite dust: 3
   O:
     thorium dust: 1
-    '[recycle] oxygen': 2000
+    oxygen out: 2000
   eut: 60
   dur: 2.65
-- m: centrifuge
-  tier: EV
+- m: industrial centrifuge
+  tier: IV
   I:
     hafnia-zirconia blend dust: 1
   O:
@@ -309,3 +337,4 @@
     ziconia dust: 3
   eut: 1920
   dur: 30
+
