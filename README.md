@@ -1,6 +1,6 @@
 # gtnh-flow
 
-## Major changes from OrderedSet86's version
+## Major changes from OrderedSet86's version (From [joegnis](https://github.com/joegnis))
 
 - Colors each machine node
 - Shows which input is recyclable in summary
@@ -9,6 +9,8 @@
 
 Incentive: I want to use this tool also as a build guide, i.e. know how to build the line
 at a glance on the output image, instead of referring back to NEI frequently.
+
+Hermanoid's contributions have been mostly to specialize templates for his own purposes, and to add some new lines.
 
 ## What is it?
 
