@@ -1,5 +1,5 @@
 - m: large chemical reactor
-  tier: EV
+  tier: IV
   I:
     PMP: 9
     '[100% recycle] aqua regia': 9000
@@ -8,7 +8,9 @@
     platinum concentrate: 9000
   eut: 30
   dur: 112.5
-  number: 1.25551831687 # balanced to 1 pmp/s
+  # number: 1.25551831687 # balanced to 1 pmp/s
+  # number: 0.31387957921 # reduced by 4x for IV
+  number: 0.45 # just a lil larger
   group: platinum
 - m: large chemical reactor
   tier: EV
@@ -35,8 +37,8 @@
   eut: 240
   dur: 70
   group: platinum
-- m: industrial industrial sifter
-  tier: EV
+- m: industrial sifter
+  tier: IV
   I:
     platinum salt dust: 1
   O:
@@ -45,7 +47,7 @@
   dur: 30
   group: pmp recycling
 - m: volcanus
-  tier: EV
+  tier: IV
   I:
     refined platinum salt dust: 1
   O:
@@ -153,7 +155,7 @@
   dur: 15
   group: iridium
 - m: large chemical reactor
-  tier: IV
+  tier: EV
   I:
     calcium dust: 3
     iridium chloride dust: 1
@@ -184,7 +186,7 @@
   eut: 60
   dur: 1.35
   group: iridium
-- m: centrifuge
+- m: industrial centrifuge
   tier: EV
   I:
     metallic sludge dust residue dust: 2
@@ -384,7 +386,7 @@
   dur: 15
   group: ruthenium
 - m: oil cracker
-  tier: EV
+  tier: IV
   I:
     steam: 1000
     ruthenium tetroxide solution: 1000
@@ -426,7 +428,7 @@
   dur: 15
   group: ruthenium
 - m: large chemical reactor
-  tier: EV
+  tier: IV
   I:
     palladium enriched ammonia: 2800
     # '[palladium] ammonia': 6200
@@ -493,17 +495,17 @@
   dur: 1.5
   group: ruthenium
 # Low bandwidth, make in AE
-# - m: large chemical reactor
-#   tier: EV
-#   I:
-#     carbon dust: 1
-#     oxygen: 1000
-#   O:
-#     carbon monoxide: 1000
-#   eut: 7
-#   dur: 2
-#   group: palladium
-- m: centrifuge
+- m: large chemical reactor
+  tier: EV
+  I:
+    carbon dust: 1
+    oxygen: 1000
+  O:
+    carbon monoxide: 1000
+  eut: 7
+  dur: 2
+  group: palladium
+- m: industrial centrifuge
   tier: LV
   I:
     sludge dust residue dust: 5
@@ -574,18 +576,18 @@
   dur: 2.5
   group: rare element prep
 # Low bandwidth, make in AE
-# - m: large chemical reactor
-#   tier: EV
-#   I:
-#     # '[rhod] nitric acid': 1000
-#     nitric acid: 1000
-#     '[source] sodium dust': 1
-#   O:
-#     sodium nitrate dust: 5
-#     '[recycle] hydrogen': 1000
-#   eut: 60
-#   dur: 0.4
-#   group: rhodium
+- m: large chemical reactor
+  tier: EV
+  I:
+    # '[rhod] nitric acid': 1000
+    nitric acid: 1000
+    '[source] sodium dust': 1
+  O:
+    sodium nitrate dust: 5
+    '[recycle] hydrogen': 1000
+  eut: 60
+  dur: 0.4
+  group: rhodium
 - m: large chemical reactor
   tier: EV
   I:
