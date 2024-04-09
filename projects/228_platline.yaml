@@ -155,7 +155,7 @@
   dur: 15
   group: iridium
 - m: large chemical reactor
-  tier: EV
+  tier: IV
   I:
     calcium dust: 3
     iridium chloride dust: 1
@@ -546,15 +546,15 @@
 #   dur: 16
 #   group: palladium
 # - m: large chemical reactor
-#   tier: EV
+#   tier: IV
 #   I:
 #     nitrogen: 1000
 #     '[source] hydrogen': 3000
 #   O:
-#     '[platinum] ammonia': 1000
+#     'ammonia Input': 1000
 #   eut: 384
 #   dur: 16
-#   group: platinum
+  # group: platinum
 # - m: large chemical reactor
 #   tier: EV
 #   I:
