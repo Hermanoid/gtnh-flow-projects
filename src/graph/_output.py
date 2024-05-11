@@ -3,8 +3,7 @@ from io import StringIO
 from collections import defaultdict
 
 import graphviz
-
-from src.graph._postProcessing import bottleneckPrint
+from termcolor import colored
 
 
 
@@ -86,7 +85,7 @@ def outputGraphviz(self):
                         ing_name = self.getIngLabel(cell)
                         label = self.stripBrackets(ing_name)
                         if quants:
-                            quant = self.userRound(quants[i])
+                            quant = self.userAccurate(quants[i])
                             label = f'{label} x{quant}'
                         io.write(f'<td border="1" PORT="{port_id}">{label}</td>')
                     else:
@@ -110,7 +109,7 @@ def outputGraphviz(self):
                         ing_name = self.getIngLabel(cell)
                         label = self.stripBrackets(ing_name)
                         if quants:
-                            quant = self.userRound(quants[i])
+                            quant = self.userAccurate(quants[i])
                             label = f'{label} x{quant}'
                         io.write(f'<td border="1" PORT="{port_id}">{label}</td>')
                     else:
@@ -163,7 +162,7 @@ def outputGraphviz(self):
                 add_node_internal(g, rec_id, **kwargs)
         else:
             with g.subgraph(name=f'cluster_{group}') as c:
-                self.parent_context.cLog(f'Creating subgraph {group}')
+                self.parent_context.log.debug(colored(f'Creating subgraph {group}'))
                 cluster_color = self.getUniqueColor(group)
 
                 # Populate nodes
@@ -274,6 +273,3 @@ def outputGraphviz(self):
 
     if self.graph_config.get('DEBUG_SHOW_EVERY_STEP', False):
         input()
-    
-    if self.graph_config.get('PRINT_BOTTLENECKS'):
-        bottleneckPrint(self)

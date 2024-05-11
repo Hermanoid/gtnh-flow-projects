@@ -50,6 +50,10 @@ POSITIVE_COLOR: '#859900'
 NEGATIVE_COLOR: '#dc322f'
 RECYCLABLE_COLOR: '#2aa198'
 # Find color codes at: https://graphviz.org/doc/info/colors.html
+# Trying to pick one similar to the color of multis, but
+# there are some exceptions like
+# LPF machines and mixer share the same multi-use casings
+DEFAULT_MACHINE_COLOR: aliceblue
 MACHINE_COLORS:
   electric blast furnace: lightgreen
   volcanus: lightgreen
@@ -80,11 +84,11 @@ ORIENTATION: 'TB'
 # [TB, LR, BT, RL]
 
 LINE_STYLE: 'spline'
-# [line, spline, polyline, curved] 
+# [line, spline, polyline, curved]
 
 RANKSEP: '1.25'
 NODESEP: '0.25'
-# Node separation size in X/Y. 
+# Node separation size in X/Y.
 # This is a suggestion, the graphing algorithm will ignore numbers that are too small.
 
 COMBINE_INPUTS: true
@@ -96,4 +100,6 @@ COMBINE_OUTPUTS: true
 DEBUG_SHOW_EVERY_STEP: false
 SHOW_MACHINE_INDICES: false
 STRIP_BRACKETS: true
+STREAMHANDLER_LEVEL: INFO
+LOG_ADJACENCY_LIST: false
 # }
