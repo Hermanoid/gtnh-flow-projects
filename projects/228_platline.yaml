@@ -31,7 +31,7 @@
   O:
     platinum salt dust: 16
     reprecipitated platinum dust: 4
-    palladium enriched ammonia: 3600
+    "[fresh] palladium enriched ammonia": 3600
     nitrogen dioxide: 9000
     diluted sulfuric acid: 9000
   eut: 240
@@ -239,15 +239,16 @@
   eut: 30
   dur: 15
   group: rhodium
-- m: industrial electrolyzer
+- m: large chemical reactor
   tier: EV
   I:
     zinc sulfate dust: 6
+    "[source] hydrogen": 2000
   O:
     zinc dust: 1
     '[industrial electrolyze] sulfuric acid': 1000
-  eut: 90
-  dur: 1.3
+  eut: 7
+  dur: 1.5
   group: rhodium
 # - m: fluid solidifier
 - m: large processing factory
@@ -428,15 +429,41 @@
   dur: 15
   group: ruthenium
 - m: large chemical reactor
+  tier: EV
+  I:
+    palladium metallic powder dust: 1
+    ammonia: 1000
+  O:
+    "[from recycle] palladium enriched ammonia": 1000
+  eut: 30
+  dur: 12.5
+  group: palladium
+
+- m: large chemical reactor
   tier: IV
   I:
-    palladium enriched ammonia: 2800
-    # '[palladium] ammonia': 6200
-    ammonia Input: 6200
+    # palladium enriched ammonia: 9000
+    # Manually resolve cycle by splitting palladium enriched ammonia from fresh and recycle sources
+    # from 9000 palladium enriched ammonia (into this lcr), the amount recycled is:
+    #   (16 (palladium salt dust) * 0.95 (sifter)) - 9 (used by this lcr)) * 1000 (lcr with ammonia) = 6200
+    # The remaining 9000-6200=2800 is the fresh input
+    "[fresh] palladium enriched ammonia": 2800
+    "[from recycle] palladium enriched ammonia": 6200
+    palladium metallic powder dust: 9
   O:
+    palladium salt dust: 16
     reprecipitated palladium dust: 2
   eut: 30
   dur: 112.5
+  group: palladium
+- m: industrial sifter
+  tier: IV
+  I:
+    palladium salt dust: 1
+  O:
+    "[partial recycle] palladium metallic powder dust": 0.95
+  eut: 30
+  dur: 30
   group: palladium
 - m: large chemical reactor
   tier: EV
