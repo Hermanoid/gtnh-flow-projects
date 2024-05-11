@@ -6,7 +6,7 @@ from copy import deepcopy
 from string import ascii_uppercase
 
 import yaml
-from termcolor import cprint
+from termcolor import colored, cprint
 
 from src.data.basicTypes import Ingredient, IngredientCollection, Recipe
 from src.graph._utils import _iterateOverMachines
@@ -22,7 +22,7 @@ def capitalizeMachine(machine):
     capitalization_exceptions = {
         # Format is old_str: new_str
     }
-    
+
     if len(machine_capitals) > 0:
         return machine
     elif machine in capitalization_exceptions:
@@ -39,7 +39,7 @@ def createMachineLabels(self):
     # Cycle: 2.0s
     # Amoritized: 1.46K EU/t
     # Per Machine: 256EU/t
-    
+
     for node_id in self.nodes:
         if self._checkIfMachine(node_id):
             rec_id = node_id
@@ -52,7 +52,7 @@ def createMachineLabels(self):
         # Standard label
         label_lines.extend([
             f'{round(rec.multiplier, 2)}x {rec.user_voltage.upper()} {capitalizeMachine(rec.machine)}',
-            f'Cycle: {rec.dur/20}s',
+            f'Cycle: {round(rec.dur/20, 2)}s',
             f'Amoritized: {self.userRound(int(round(rec.eut, 0)))} EU/t',
             f'Per Machine: {self.userRound(int(round(rec.base_eut, 0)))} EU/t',
         ])
@@ -79,7 +79,7 @@ def createMachineLabels(self):
         if rec.machine in recognized_basic_power_machines:
             # Remove power input data
             label_lines = label_lines[:-2]
-        
+
         line_if_attr_exists = {
             'heat': (lambda rec: f'Base Heat: {rec.heat}K'),
             'coils': (lambda rec: f'Coils: {rec.coils.title()}'),
@@ -106,14 +106,15 @@ def addUserNodeColor(self):
 
     for rec_id in all_user_nodes:
         # Emphasizes the first line (i.e. machine name line)
-        self.nodes[rec_id]['label'] = re.sub(r'^([^\n]+)', r'<b><u>\1</u></b>', self.nodes[rec_id]['label'])
-
+        lines = self.nodes[rec_id]['label'].split('\n')
+        lines[0] = r'<b><u>' + lines[0] + r'</u></b>'
+        self.nodes[rec_id]['label'] = '\n'.join(lines)
 
 
 def addMachineMultipliers(self):
     # Compute machine multiplier based on solved ingredient quantities
     # FIXME: If multipliers disagree, sympy solver might have failed on an earlier step
-    
+
     for rec_id, rec in self.recipes.items():
         multipliers = []
 
@@ -130,7 +131,7 @@ def addMachineMultipliers(self):
                         solved_quant_per_s += self.edges[edge]['quant']
 
                 base_quant_s = base_quant / (rec.dur/20)
-                
+
                 # print(io_dir, rec_id, ing_name, getattr(rec, io_dir))
                 # print(solved_quant_per_s, base_quant_s, rec.dur)
                 # print()
@@ -192,13 +193,16 @@ def addPowerLineNodesV2(self):
 
     # 3. Redirect burnables currently going to sink and redirect them to a new burn machine
     outputs = self.adj['sink']['I']
+    burn_machines_added = False
     for edge in deepcopy(outputs):
         node_from, _, ing_name = edge
         edge_data = self.edges[edge]
         quant_s = edge_data['quant']
 
         if ing_name in known_burnables and not ing_name in self.graph_config['DO_NOT_BURN']:
-            self.parent_context.cLog(f'Detected burnable: {ing_name.title()}! Adding to chart.', 'blue', level=logging.INFO)
+            self.parent_context.log.info(colored(f'Detected burnable: {ing_name.title()}! Adding to chart.', 'blue'))
+            burn_machines_added = True
+
             generator_idx, eut_per_cell = known_burnables[ing_name]
             gen_name = generator_names[generator_idx]
 
@@ -257,19 +261,20 @@ def addPowerLineNodesV2(self):
                 wasted_fuel=f'{self.userRound(loss_on_singleblock_output)}EU/t/amp',
             )
 
-            produced_eut_s = quant_s/expended_fuel_t*output_eut 
-            self.parent_context.cLog(
-                ''.join([
-                    f'Added {gen_voltage} generator burning {quant_s} {ing_name} for '
-                    f'{self.userRound(produced_eut_s/20)}EU/t at {output_eut}EU/t each.'
-                ]),
-                'blue',
-                level=logging.INFO,
+            produced_eut_s = quant_s/expended_fuel_t*output_eut
+            self.parent_context.log.info(
+                colored(
+                    ''.join([
+                        f'Added {gen_voltage} generator burning {quant_s} {ing_name} for '
+                        f'{self.userRound(produced_eut_s/20)}EU/t at {output_eut}EU/t each.'
+                    ]),
+                    'blue',
+                )
             )
 
             self.addNode(
                 node_idx,
-                fillcolor=self.graph_config['NONLOCKEDNODE_COLOR'],
+                fillcolor=self.graph_config['DEFAULT_MACHINE_COLOR'],
                 shape='box'
             )
 
@@ -291,10 +296,12 @@ def addPowerLineNodesV2(self):
             )
             # Remove old edge and repopulate adjacency list
             del self.edges[edge]
-            self.createAdjacencyList()
 
             highest_node_index += 1
 
+    if burn_machines_added:
+        self.parent_context.log.debug(colored('Updating adj since new powerline machines added', 'yellow'))
+        self.createAdjacencyList()
 
 
 def addSummaryNode(self):
@@ -307,7 +314,7 @@ def addSummaryNode(self):
 
     color_positive = self.graph_config['POSITIVE_COLOR']
     color_negative = self.graph_config['NEGATIVE_COLOR']
-    
+
     def makeLineHtml(lab_text, amt_text, lab_color, amt_color):
         return ''.join([
             '<tr>'
@@ -316,6 +323,7 @@ def addSummaryNode(self):
             '</tr>'
         ])
 
+    self.parent_context.log.debug(colored('Updating adj before summary node', 'yellow'))
     self.createAdjacencyList()
 
     # Compute I/O
@@ -384,7 +392,8 @@ def addSummaryNode(self):
     total_eut = 0
     for rec in self.recipes.values():
         total_eut += rec.eut
-    io_label_lines.append('<hr/>')
+    if io_label_lines[-1] == '':
+        io_label_lines.append('<hr/>')
     eut_rounded = -int(math.ceil(total_eut))
     io_label_lines.append(makeLineHtml('Input EU/t:', self.userRound(eut_rounded), 'white', color_negative))
     if 'eu' in total_io:
@@ -429,8 +438,8 @@ def addSummaryNode(self):
         max_draw += rec.base_eut * math.ceil(rec.multiplier)
 
     io_label_lines.append(
-        makeLineHtml( 
-            'Peak power draw:', 
+        makeLineHtml(
+            'Peak power draw:',
             f'{round(max_draw/voltage_at_tier, 2)}A {tiers[max_tier].upper()}',
             'white',
             color_negative
