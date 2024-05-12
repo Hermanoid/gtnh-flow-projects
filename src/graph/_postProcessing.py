@@ -90,6 +90,7 @@ def createMachineLabels(self):
             'wasted_fuel': (lambda rec: f'Wasted Fuel: {rec.wasted_fuel}'),
             'circuit': (lambda rec: f'Circuit #{rec.circuit}'),
             'parallel': (lambda rec: f'Parallels: {rec.parallel}'),
+            'note': (lambda rec: f'Note: {rec.note}'),
         }
         for lookup, line_generator in line_if_attr_exists.items():
             if hasattr(rec, lookup):
