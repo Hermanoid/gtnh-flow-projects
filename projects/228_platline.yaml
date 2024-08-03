@@ -10,7 +10,7 @@
   dur: 112.5
   # number: 1.25551831687 # balanced to 1 pmp/s
   # number: 0.31387957921 # reduced by 4x for IV
-  number: 0.45 # just a lil larger
+  number: 0.9 # just a lil larger
   group: platinum
 - m: large chemical reactor
   tier: EV
@@ -155,7 +155,7 @@
   dur: 15
   group: iridium
 - m: large chemical reactor
-  tier: IV
+  tier: LuV
   I:
     calcium dust: 3
     iridium chloride dust: 1
@@ -440,7 +440,7 @@
   group: palladium
 
 - m: large chemical reactor
-  tier: IV
+  tier: LuV
   I:
     # palladium enriched ammonia: 9000
     # Manually resolve cycle by splitting palladium enriched ammonia from fresh and recycle sources
