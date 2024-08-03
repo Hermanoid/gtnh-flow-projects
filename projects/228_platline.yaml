@@ -244,6 +244,7 @@
   I:
     zinc sulfate dust: 6
     "[source] hydrogen": 2000
+    "[source] hydrogen": 2000
   O:
     zinc dust: 1
     '[industrial electrolyze] sulfuric acid': 1000
