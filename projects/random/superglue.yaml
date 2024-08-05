@@ -1,0 +1,155 @@
+- m: Thermic Heating Device
+  tier: luv
+  I:
+    cyanoacrylate polymer: 2
+  O:
+    ethyl cyanoacrylate (super glue): 2
+  eut: 480
+  dur: 0.9
+  number: 6
+  # target:
+  #   ethyl cyanoacrylate (super glue): 1000
+
+- m: ExxonMobil Chemical Plant
+  tier: LuV
+  coils: naquadah alloy
+  pipe_casings: tungstensteel
+  I:
+    ethyl cyanoacetate: 100
+    formaldehyde: 100
+  O:
+    cyanoacrylate polymer: 1000
+  eut: 7680
+  dur: 10
+
+- m: ExxonMobil Chemical Plant
+  tier: IV
+  coils: naquadah alloy
+  pipe_casings: tungstensteel
+  I:
+    oxygen: 32000
+    methanol: 32000
+  O:
+    formaldehyde: 32000
+  eut: 120
+  dur: 90
+
+- m: ExxonMobil Chemical Plant
+  tier: LuV
+  coils: naquadah alloy
+  pipe_casings: tungstensteel
+  I:
+    copper(II) sulfate dust: 6
+    cyanoacetic acid dust: 45
+    ethanol: 5000
+  O:
+    copper(II) sulfate pentahydrate dust: 11
+    ethyl cyanoacetate: 5000
+  eut: 6000
+  dur: 500
+
+- m: Dehydrator
+  tier: IV
+  I:
+    copper(II) sulfate pentahydrate dust: 11
+  O:
+    "[recycle] copper(II) sulfate dust": 6
+  eut: 10
+  dur: 300
+
+- m: ExxonMobil Chemical Plant
+  tier: IV
+  coils: naquadah alloy
+  pipe_casings: tungstensteel
+  I:
+    sodium carbonate dust: 6
+    sodium cyanide dust: 3
+    chloroacetic acid: 1000
+    hydrochloric acid: 2000
+  O:
+    cyanoacetic acid dust: 9
+    salt: 6
+    co2: 1000
+  eut: 1000
+  dur: 20
+
+- m: Large Chemical Reactor
+  tier: IV
+  I:
+    brown algae biomass: 40
+    distilled water: 2000
+  O:
+    sodium carbonate dust: 20
+  eut: 30
+  dur: 30
+
+- m: Large Chemical Reactor
+  tier: IV
+  I:
+    sodium hydroxide dust: 3
+    hydrogen cyanide: 1000
+  O:
+    sodium cyanide dust: 3
+  eut: 30
+  dur: 10
+
+- m: ExxonMobil Chemical Plant
+  tier: IV
+  coils: naquadah alloy
+  pipe_casings: tungstensteel
+  I:
+    methane gas: 2000
+    ammonia: 2000
+    oxygen: 6000
+  O:
+    hydrogen cyanide: 2000
+  eut: 480
+  dur: 10
+
+- m: dehydrator
+  tier: iv
+  I: 
+    acetic acid: 2000
+  O:
+    "[fresh] acetic anhydride": 1000
+  eut: 480
+  dur: 30
+
+- m: ExxonMobil Chemical Plant
+  tier: IV
+  coils: naquadah alloy
+  pipe_casings: tungstensteel
+  I:
+    acetic acid: 1000
+    chlorine: 1000
+    "[looped] acetic anhydride": 950
+    "[fresh] acetic anhydride": 50
+  O:
+    "[fresh] chloroacetic mixture": 1000
+    "[recycle] acetic anhydride": 950
+  eut: 1000
+  dur: 150
+
+
+- m: industrial mixer
+  tier: IV
+  I:
+    dichloroacetic acid: 1000
+    trichloroacetic acid: 1000
+  O:
+    "[looped] chloroacetic mixture": 2000
+  eut: 100
+  dur: 5
+
+- m: dangote - distillation tower
+  tier: luv
+  I:
+    "[fresh] chloroacetic mixture": 100
+    "[looped] chloroacetic mixture": 900
+  O: 
+    chloroacetic acid: 100
+    "[recycle] dichloroacetic acid": 450
+    "[recycle] trichloroacetic acid": 450
+  eut: 7680
+  dur: 4
+

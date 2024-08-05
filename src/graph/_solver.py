@@ -170,6 +170,8 @@ class SympySolver:
                     for ing in getattr(rec, ing_direction):
                         if ing.name != core_ing.name:
                             # Determine constant multiple between products
+                            if ing.quant == 0:
+                                raise RuntimeError(f'Zero quantity found in {ing_direction} {ing.name}!')
                             multiple = core_ing.quant / ing.quant
                             new_eqn = (
                                 self.variables[self.arrayIndex(rec_id, core_ing.name, core_direction)]

@@ -36,7 +36,7 @@ class OverclockHandler:
 
     def modifyGTpp(self, recipe, MAX_PARALLEL=None, eut_discount=None):
         if recipe.machine not in self.overclock_data['GTpp_stats']:
-            raise RuntimeError('Missing OC data for GT++ multi - add to gtnhClasses/overclocks.py:GTpp_stats')
+            raise RuntimeError(f"Missing OC data for GT++ multi {recipe.machine} - add to gtnhClasses/overclocks.py:GTpp_stats")
 
         # Get per-machine boosts
         SPEED_BOOST, EU_DISCOUNT, PARALLELS_PER_TIER = self.overclock_data['GTpp_stats'][recipe.machine]
@@ -47,6 +47,9 @@ class OverclockHandler:
 
         # Calculate base parallel count and clip time to 1 tick
         available_eut = self.voltage_cutoffs[self.voltages.index(recipe.user_voltage)]
+        if recipe.eut > available_eut and not self.ignore_underclock:
+            raise RuntimeError(f'Insufficient Voltage detected! Recipe {recipe.machine} uses {recipe.eut} EU/t, but user is providing {recipe.user_voltage} which is at most {available_eut} EU/t.')
+            
         if MAX_PARALLEL is None:
             MAX_PARALLEL = (self.voltages.index(recipe.user_voltage) + 1) * PARALLELS_PER_TIER
         NEW_RECIPE_TIME = max(recipe.dur * SPEED_BOOST, 1)
