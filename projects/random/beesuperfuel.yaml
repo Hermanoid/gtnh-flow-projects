@@ -7,28 +7,28 @@
   eut: 16
   dur: 5
 - m: fluid extractor
-  tier: LV
+  tier: IV
   I:
     pams fish: 1
   O:
     fish oil: 50
   eut: 4
   dur: 0.8
+# - m: large chemical reactor
+#   tier: IV
+#   I:
+#     oxygen: 1000
+#     hydrogen: 4000
+#     carbon dust: 1
+#   O:
+#     methanol: 1000
+#   eut: 96
+#   dur: 16
 - m: large chemical reactor
-  tier: MV
-  I:
-    oxygen: 1000
-    hydrogen: 4000
-    carbon dust: 1
-  O:
-    methanol: 1000
-  eut: 96
-  dur: 16
-- m: large chemical reactor
-  tier: LV
+  tier: IV
   I:
     fish oil: 54000
-    methanol: 9000
+    ethanol: 9000
     sodium hydroxide dust: 1
   O:
     bio diesel: 54000
@@ -36,7 +36,7 @@
   eut: 30
   dur: 270
 - m: large chemical reactor
-  tier: HV
+  tier: IV
   I:
     bio diesel: 10000
     tetranitromethane: 400
@@ -45,47 +45,79 @@
   eut: 480
   dur: 6
 - m: large chemical reactor
-  tier: MV
+  tier: IV
   I:
     nitric acid: 8000
     ethenone: 1000
   O:
     tetranitromethane: 2000
-    water: 9000
+    # water: 9000
   eut: 120
   dur: 24
 - m: large chemical reactor
-  tier: LV
+  tier: IV
   I:
     oxygen: 4000
     ammonia: 1000
   O:
     nitric acid: 1000
-    water: 1000
+    # water: 1000
   eut: 30
   dur: 16
-- m: large chemical reactor
-  tier: HV
+# - m: large chemical reactor
+#   tier: IV
+#   I:
+#     nitrogen: 1000
+#     hydrogen: 3000
+#   O:
+#     ammonia: 1000
+#   eut: 384
+#   dur: 16
+# - m: industrial mixer
+#   tier: EV
+#   I:
+#     block of charcoal: 1
+#     magic super fuel binder: 4
+#     alumentum: 4
+#     cetane-boosted diesel: 750
+#   O:
+#     magic solid super fuel: 1
+#   eut: 384
+#   dur: 16
+
+- m: large processing factory
+  tier: IV
+  I: 
+    coal: 9
+  O: 
+    block of coal: 1
+  eut: 2
+  dur: 15
+
+- m: industrial coke oven
+  tier: IV
+  I: 
+    block of coal: 1
+    nitrogen: 125
+  O: 
+    block of coal coke: 1
+    creosote: 4000
+  eut: 96
+  dur: 6.4
+
+- m: industrial mixer
+  tier: IV
   I:
-    nitrogen: 1000
-    hydrogen: 3000
-  O:
-    ammonia: 1000
-  eut: 384
-  dur: 16
-- m: mixer
-  tier: EV
-  I:
-    block of charcoal: 1
-    magic super fuel binder: 4
+    block of coal coke: 1
+    magic super fuel binder: 2
     alumentum: 4
-    cetane-boosted diesel: 750
+    cetane-boosted diesel: 300
   O:
     magic solid super fuel: 1
-  eut: 384
-  dur: 16
-  target:
-    magic solid super fuel: 1
+  eut: 480
+  dur: 5
+  # target:
+  #   magic solid super fuel: 1
 - m: burn value conversion
   tier: LV
   I:
@@ -102,16 +134,57 @@
     superheated steam: 213333
   eut: 0
   dur: 1
-- m: huge stellar alloy steam turbine
+# - m: huge Trinium XL HP steam turbine
+#   tier: IV
+#   I:
+#     # Per tick
+#     superheated steam: 460800
+#   O:
+#     EU: 737280
+#     steam: 460800
+#   number: 2
+#   # target:
+#   #   EU: 26214400 # 10A ZPM (*20 ticks -> seconds)
+#   eut: 0
+#   dur: 0.05
+# - m: huge Trinium XL steam turbine
+#   tier: IV
+#   I:
+#     # Per tick
+#     steam: 460800
+#   O:
+#     EU: 368640
+#   # target:
+#   #   EU: 26214400 # 10A ZPM (*20 ticks -> seconds)
+#   eut: 0
+#   dur: 0.05
+
+- m: large Trinium XL HP steam turbine
   tier: LV
   I:
-    superheated steam: 19200
+    # Per tick
+    superheated steam: 345600
   O:
-    EU: 28800
+    EU: 622080
+    steam: 345600
+  number: 1
+  # target:
+  #   EU: 26214400 # 10A ZPM (*20 ticks -> seconds)
   eut: 0
   dur: 0.05
-- m: mixer
-  tier: MV
+- m: large Trinium XL steam turbine
+  tier: LV
+  I:
+    # Per tick
+    steam: 345600
+  O:
+    EU: 311040
+  # target:
+  #   EU: 26214400 # 10A ZPM (*20 ticks -> seconds)
+  eut: 0
+  dur: 0.05
+- m: industrial mixer
+  tier: IV
   I:
     super fuel binder: 20
     aer crystal powder: 1
@@ -120,8 +193,8 @@
     magic super fuel binder: 20
   eut: 64
   dur: 10
-- m: centrifuge
-  tier: HV
+- m: industrial centrifuge
+  tier: IV
   I:
     hydra comb: 1
   O:
@@ -130,8 +203,8 @@
     beeswax: 0.3
   eut: 480
   dur: 19.2
-- m: centrifuge
-  tier: HV
+- m: industrial centrifuge
+  tier: IV
   I:
     hydra + fiery blood drop: 1
   O:
@@ -140,15 +213,15 @@
   eut: 480
   dur: 4.10933333
 - m: crafting table
-  tier: LV
+  tier: IV
   I:
     air infused dust: 1
   O:
     aer crystal powder: 0.25
   eut: 0
   dur: 1
-- m: centrifuge
-  tier: LV
+- m: industrial centrifuge
+  tier: IV
   I:
     breezey propolis: 1
   O:
@@ -156,8 +229,8 @@
     air infused dust: 0.9
   eut: 5
   dur: 6.4
-- m: centrifuge
-  tier: LV
+- m: industrial centrifuge
+  tier: IV
   I:
     glittering windy comb: 1
   O:
@@ -166,32 +239,44 @@
     feather: 0.6
   eut: 5
   dur: 6.4
-- m: thaumatorium
-  tier: LV
-  I:
-    charcoal dust: 4
-  O:
-    alumentum: 1
-  eut: 0
-  dur: 1
+# - m: industrial coke oven
+#   tier: IV
+#   I:
+#     wood: 8
+#     nitrogen: 250
+#   O:
+#     charcoal: 5
+#     wood vinegar: 750
+#   # eut: 4
+#   # dur: 0.8
+
 - m: macerator
-  tier: LV
+  tier: IV
   I:
     charcoal: 1
   O:
     charcoal dust: 1
   eut: 4
   dur: 0.8
-- m: compressor
-  tier: LV
+- m: thaumatorium
+  tier: IV
   I:
-    charcoal: 9
+    charcoal dust: 4
   O:
-    block of charcoal: 1
-  eut: 2
-  dur: 15
+    alumentum: 1
+  eut: 0
+  dur: 1
+
+# - m: compressor
+#   tier: IV
+#   I:
+#     charcoal: 9
+#   O:
+#     block of charcoal: 1
+#   eut: 2
+#   dur: 15
 - m: large chemical reactor
-  tier: MV
+  tier: IV
   I:
     sulfuric acid: 500
     acetic acid: 1000
@@ -200,7 +285,7 @@
   eut: 120
   dur: 8
 - m: large chemical reactor
-  tier: LV
+  tier: IV
   I:
     oxygen: 3000
     sulfur dust: 1
@@ -208,72 +293,147 @@
     sulfuric acid: 1000
   eut: 30
   dur: 24
+# - m: large chemical reactor
+#   tier: IV
+#   I:
+#     oxygen: 2000
+#     hydrogen: 4000
+#     carbon dust: 2
+#   O:
+#     acetic acid: 1000
+#   eut: 30
+#   dur: 24
 - m: large chemical reactor
-  tier: LV
+  tier: IV
   I:
-    oxygen: 2000
-    hydrogen: 4000
-    carbon dust: 2
+    carbon dioxide: 1000
+    carbon dust: 1
+    # hydrogen: 4000
+    # carbon dust: 2
+  O:
+    carbon monoxide: 2000
+  eut: 30
+  dur: 40
+
+- m: large chemical reactor
+  tier: IV
+  I:
+    carbon monoxide: 1000
+    methanol: 1000
+    # hydrogen: 4000
+    # carbon dust: 2
   O:
     acetic acid: 1000
   eut: 30
-  dur: 24
-- m: mixer
-  tier: LV
+  dur: 15
+
+- m: fluid solidifier
+  tier: IV
   I:
-    sulfur dust: 1
-    lithium dust: 1
-    wood pulp: 4
-    advanced glue: 200
+    molten PBI: 144
   O:
-    super fuel binder: 8
+    PBI ingot: 1
+  eut: 7
+  dur: 1.6
+
+- m: macerator
+  tier: IV
+  I:
+    PBI ingot: 1
+  O:
+    PBI dust: 9
+  eut: 32
+  dur: 1
+
+- m: auto workbench
+  tier: IV
+  I:
+    PBI dust: 1
+  O:
+    tiny pile of PBI: 9
+  eut: 32
+  dur: 1
+
+- m: large chemical reactor
+  tier: IV
+  I:
+    sugar: 9
+    polyethylene pulp: 1
+    toluene: 1197
+  O:
+    gelled toluene: 17
+  eut: 192
+  dur: 63
+
+- m: industrial mixer
+  tier: IV
+  I:
+    tiny pile of PBI: 1
+    aluminum dust: 1
+    gelled toluene: 4
+    super glue: 100
+  O:
+    super fuel binder: 64
   eut: 16
   dur: 40
-- m: electrolyzer
-  tier: MV
-  I:
-    clay dust: 13
-  O:
-    sodium dust: 2
-    lithium dust: 1
-    alumina dust: 2
-    silicon dioxide dust: 2
-  eut: 120
-  dur: 7.8
-- m: mixer
-  tier: LV
-  I:
-    polyvinyl acetate: 1000
-    acetone: 1500
-  O:
-    advanced glue: 2500
-  eut: 7
-  dur: 2.5
-- m: large chemical reactor
-  tier: HV
-  I:
-    acetic acid: 2000
-  O:
-    acetone: 1000
-    co2 gas: 1000
-  eut: 480
-  dur: 20
-- m: large chemical reactor
-  tier: HV
-  I:
-    vinyl acetate: 144
-    oxygen: 1000
-  O:
-    polyvinyl acetate: 216
-  eut: 30
-  dur: 8
-- m: large chemical reactor
-  tier: HV
-  I:
-    acetic acid: 1000
-    ethylene: 1000
-    oxygen: 1000
-  O:
-    vinyl acetate: 1000
-  eut: 30
-  dur: 9
+
+# - m: industrial mixer
+#   tier: IV
+#   I:
+#     sulfur dust: 1
+#     lithium dust: 1
+#     wood pulp: 4
+#     advanced glue: 200
+#   O:
+#     super fuel binder: 8
+#   eut: 16
+#   dur: 40
+
+# - m: industrial electrolyzer
+#   tier: IV
+#   I:
+#     clay dust: 13
+#   O:
+#     sodium dust: 2
+#     lithium dust: 1
+#     alumina dust: 2
+#     silicon dioxide dust: 2
+#   eut: 120
+#   dur: 7.8
+# - m: industrial mixer
+#   tier: IV
+#   I:
+#     polyvinyl acetate: 1000
+#     acetone: 1500
+#   O:
+#     advanced glue: 2500
+#   eut: 7
+#   dur: 2.5
+# - m: large chemical reactor
+#   tier: IV
+#   I:
+#     acetic acid: 2000
+#   O:
+#     acetone: 1000
+#     co2 gas: 1000
+#   eut: 480
+#   dur: 20
+# - m: large chemical reactor
+#   tier: IV
+#   I:
+#     vinyl acetate: 144
+#     oxygen: 1000
+#   O:
+#     polyvinyl acetate: 216
+#   eut: 30
+#   dur: 8
+# - m: large chemical reactor
+#   tier: IV
+#   I:
+#     acetic acid: 1000
+#     ethylene: 1000
+#     oxygen: 1000
+#   O:
+#     vinyl acetate: 1000
+#   eut: 30
+#   dur: 9

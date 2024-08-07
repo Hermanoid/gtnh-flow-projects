@@ -47,7 +47,7 @@
   dur: 30
   group: pmp recycling
 - m: volcanus
-  tier: IV
+  tier: LuV
   I:
     refined platinum salt dust: 1
   O:
@@ -56,7 +56,7 @@
   eut: 120
   dur: 10
   heat: 900
-  coils: HSS-S
+  coils: naquadah
   group: pmp recycling
 - m: electric blast furnace
   tier: EV
@@ -270,8 +270,8 @@
   eut: 4
   dur: 1.95
   group: K2S2O7 recycling
-- m: distillation tower
-  tier: IV
+- m: dangote - distillation tower
+  tier: LuV
   I:
     acidic osmium solution: 1000
   O:
@@ -430,7 +430,7 @@
   dur: 15
   group: ruthenium
 - m: large chemical reactor
-  tier: EV
+  tier: IV
   I:
     palladium metallic powder dust: 1
     ammonia: 1000

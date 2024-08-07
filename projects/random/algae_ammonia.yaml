@@ -1,0 +1,31 @@
+- m: UHV Algea Farm
+  tier: LV
+  I:
+    this crap free: 1
+  O:
+    algae: 20
+    green algae: 102
+    brown algae: 80
+    golden-brown algae: 52
+    red algae: 24
+  number: 5
+  eut: 0
+  dur: 1.6
+
+- m: Precise Assembler
+  tier: luv
+  I:
+    golden-brown algae: 10
+  O:
+    golden-brown cellulose fiber: 5
+  eut: 120
+  dur: 7.5
+
+- m: Large Processing Factory
+  tier: luv
+  I:
+    golden-brown cellulose fiber: 1
+  O:
+    ammonia: 100
+  eut: 120
+  dur: 3
