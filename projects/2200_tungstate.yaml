@@ -14,38 +14,38 @@
   tier: EV
   I:
     tungstate dust: 7
-    sodium hydroxide dust: 4
+    sodium hydroxide dust: 2
   O:
     lithium dust: 2
-    sodium tungstate: 4000
+    sodium tungstate: 1000
   eut: 1920
   dur: 5
 - m: large chemical reactor
   tier: HV
   I:
-    sodium tungstate: 4000
-    calcium chloride dust: 6
+    sodium tungstate: 1000
+    calcium chloride dust: 3
   O:
-    scheelite dust: 7
-    salt: 8
+    scheelite dust: 6
+    salt: 4
   eut: 480
   dur: 5
 - m: large chemical reactor
   tier: EV
   I:
-    scheelite dust: 7
-    hydrochloric acid: 4000
+    scheelite dust: 6
+    hydrochloric acid: 2000
   O:
-    tungstic acid dust: 1
-    calcium chloride dust: 6
+    tungstic acid dust: 7
+    calcium chloride dust: 3
   eut: 1920
   dur: 2.5
 - m: electric blast furnace
   tier: HV
   I:
-    tungstic acid dust: 1
+    tungstic acid dust: 7
   O:
-    tungsten trioxide dust: 1
+    tungsten trioxide dust: 4
   eut: 480
   dur: 10
   heat: 1200
@@ -53,8 +53,8 @@
 - m: electric blast furnace
   tier: EV
   I:
-    tungsten trioxide dust: 1
-    hydrogen: 3000
+    tungsten trioxide dust: 4
+    hydrogen: 6000
   O:
     tungsten dust: 1
   eut: 1920
