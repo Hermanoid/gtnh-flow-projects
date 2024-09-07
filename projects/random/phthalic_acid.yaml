@@ -1,0 +1,51 @@
+- m: LCR
+  tier: IV
+  I:
+    chromium trioxide dust: 8
+    saltpeter: 10
+  O:
+    potassium dichromate dust: 11
+    '[recycle] nitrogen': 2000
+    '[recycle] oxygen': 5000
+  eut: 480
+  dur: 5
+- m: LCR
+  tier: IV
+  I:
+    chromium dioxide dust: 3
+    oxygen: 1000
+  O:
+    chromium trioxide dust: 4
+  eut: 60
+  dur: 5
+- m: LCR
+  tier: IV
+  I:
+    chrome dust: 1
+    oxygen: 2000
+  O:
+    chromium dioxide dust: 3
+  eut: 30
+  dur: 40
+- m: LCR
+  tier: ZPM
+  I:
+    1,2-dimethylbenzene: 9000
+    oxygen: 54000
+    potassium dichromate dust: 1
+  O:
+    phthalic acid: 9000
+    '[recycle] water': 18000
+  target:
+    phthalic acid: 2000
+  eut: 1920
+  dur: 45
+- m: LCR
+  tier: ZPM
+  I:
+    benzene: 1000
+    methane: 2000
+  O:
+    1,2-dimethylbenzene: 1000
+  eut: 120
+  dur: 200

@@ -1,0 +1,39 @@
+- m: lcr
+  tier: LuV
+  I:
+    gelled toluene: 4
+    nitration mixture: 200
+  O:
+    industrial tnt: 1
+    diluted sulfuric acid: 150
+  target: 
+    industrial tnt: 16
+  eut: 480
+  dur: 4
+- m: distillation tower
+  tier: IV
+  I:
+    diluted sulfuric acid: 3000
+  O:
+    "[recycle] sulfuric acid": 2000
+  eut: 120
+  dur: 30
+- m: multiblock mixture
+  tier: IV
+  I:
+    sulfuric acid: 1000
+    nitric acid: 1000
+  O:
+    nitration mixture: 2000
+  eut: 2
+  dur: 24
+- m: lcr
+  tier: LuV
+  I:
+    sugar: 9
+    polyethylene pulp: 1
+    toluene: 1197
+  O:
+    gelled toluene: 18
+  eut: 192
+  dur: 63

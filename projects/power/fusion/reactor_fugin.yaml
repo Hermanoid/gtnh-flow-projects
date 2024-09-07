@@ -1,0 +1,28 @@
+- m: centrifuge
+  tier: LuV
+  I:
+    deuterium: 16
+  O:
+    tritium: 4
+  eut: 80
+  dur: 0.8
+- m: industrial centrifuge
+  tier: LuV
+  I:
+    hydrogen gas: 16
+  O:
+    deuterium: 4
+  eut: 20
+  dur: 0.8
+- m: fusion
+  tier: ZPM
+  I:
+    tritium: 125
+    deuterium: 125
+  O:
+    helium plasma: 125
+  number: 1
+  eut: 4096
+  dur: 0.8
+  mk: 2
+  start: 1

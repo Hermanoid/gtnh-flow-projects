@@ -1,0 +1,390 @@
+# For processing the rare residues you get from meteors
+# Assume Leach Metal Residue, Rarest Metal Residue, Iridum Metal Residue, and Palladium Salt Dust come in roughly 1-to-1
+# When a Tier VI miner is used on the asteroids and the ores are processed, I estimate 10-20 of each residue per second.- m: large chemical reactor
+
+# - m: large chemical reactor
+#   tier: LuV
+#   I:
+#     # '[irid 2] hydrochloric acid': 1000
+#     hydrochloric acid: 1000
+#     ammonia: 1000
+#   O:
+#     '[recycle] ammonium chloride': 1000
+#   eut: 30
+#   dur: 0.75
+#   group: iridium
+
+# - m: large chemical reactor
+#   tier: LuV
+#   I:
+#     quantaria leaf (iridium): 9
+#     crushed iridium ore: 1
+#   O:
+#     purified iridium ore: 4
+#     platinum concentrate: 1000
+#   eut: 24
+#   dur: 4.8
+#   group: oreboost
+# - m: large thermal refinery
+#   tier: LuV
+#   I:
+#     purified iridium ore: 1
+#   O:
+#     centrifuged iridium ore: 1
+#     "[recycle] rarest metal residue dust": 0.1111
+#   eut: 30
+#   dur: 1.5
+#   group: oreboost
+# - m: maceration stack
+#   tier: LuV
+#   I:
+#     centrifuged iridium ore: 1
+#   O:
+#     "[fresh] iridium metal residue dust": 1
+#     "[recycle] rarest metal residue dust": 0.10
+#   eut: 30
+#   dur: 1.5
+#   group: oreboost
+
+
+
+- m: volcanus
+  tier: LuV
+  I:
+    leach residue dust: 10
+    saltpeter: 10
+    salt water: 1000
+  O:
+    sodium ruthenate dust: 3
+    "[from leach] rarest metal residue dust": 6
+  target:
+    leach residue dust: 10
+  eut: 120
+  dur: 10
+  heat: 775
+  coils: trinium
+  group: rare element prep
+
+- m: volcanus
+  tier: LuV
+  I:
+     # We've got 10 * (6/10) = 6 rarest metal residue dust coming in
+     # We want 10 more fresh
+     # That's filling 2 input per recipe
+     # So, 6/16*2 = 0.75 from leach and 10/16 = 1.25 from fresh
+    "[from leach] rarest metal residue dust": 0.75
+    "[fresh] rarest metal residue dust": 1.25
+    # '[rep] hydrochloric acid': 500
+    hydrochloric acid: 500
+  O:
+    "[from rarest] iridium metal residue dust": 1
+    acidic osmium solution: 1000
+  # target:
+  #   "[fresh] rarest metal residue dust": 10
+  eut: 120
+  dur: 5
+  heat: 775
+  coils: trinium
+  group: rare element prep
+- m: volcanus
+  tier: LuV
+  I:
+    # We've got 16 * (1/2) = 8 iridium metal residue dust coming in
+    # We want 10 more fresh
+    # That's filling 1 input per recipe
+    # So, 8/18 = 0.4444 from leach and 10/18 = 0.5556 from fresh
+    # "[from rarest] iridium metal residue dust": 1
+    "[from rarest] iridium metal residue dust": 0.4444444444444
+    "[fresh] iridium metal residue dust": 0.5555555555556
+  O:
+    sludge dust residue dust: 1
+    iridium dioxide dust: 1
+  # target:
+  #   "[fresh] iridium metal residue dust": 10
+  
+  eut: 120
+  dur: 5
+  heat: 775
+  coils: trinium
+  group: iridium
+- m: large chemical reactor
+  tier: LuV
+  I:
+    iridium dioxide dust: 1
+    # '[irid 1] hydrochloric acid': 1000
+    hydrochloric acid: 1000
+
+  O:
+    acidic iridium solution: 1000
+  eut: 30
+  dur: 15
+  group: iridium
+
+- m: large chemical reactor
+  tier: LuV
+  I:
+    hydrochloric acid: 1000
+    ammonia: 1000
+  O:
+    ammonium chloride: 1000
+  eut: 30
+  dur: 0.75
+  group: iridium
+- m: large chemical reactor
+  tier: LuV
+  I:
+    ammonium chloride: 3000
+    acidic iridium solution: 1000
+  O:
+    iridium chloride dust: 1
+    "[recycle] ammonia": 3000
+  eut: 30
+  dur: 15
+  group: iridium
+- m: large chemical reactor
+  tier: UV
+  I:
+    calcium dust: 3
+    iridium chloride dust: 1
+  O:
+    metallic sludge dust residue dust: 1
+    iridium dust: 1
+    calcium chloride: 3000
+  eut: 1920
+  dur: 15
+  group: iridium
+# - m: fluid solidifier
+- m: large processing factory
+  tier: LuV
+  I:
+    calcium chloride: 1000
+  O:
+    calcium chloride dust: 1
+  eut: 30
+  dur: 1.8
+  group: iridium
+- m: industrial electrolyzer
+  tier: LuV
+  I:
+    calcium chloride dust: 3
+  O:
+    '[recycle] calcium dust': 1
+    '[recycle] chlorine': 2000
+  eut: 60
+  dur: 1.35
+  group: iridium
+- m: industrial centrifuge
+  tier: LuV
+  I:
+    metallic sludge dust residue dust: 2
+  O:
+    nickel dust: 1
+    copper dust: 1
+  eut: 10
+  dur: 1.5
+  group: iridium
+- m: dangote - distillation tower
+  tier: ZPM
+  I:
+    acidic osmium solution: 1000
+  O:
+    osmium solution: 100
+  eut: 7680
+  dur: 7.5
+  group: osmium
+- m: large chemical reactor
+  tier: LuV
+  I:
+    # '[os] hydrochloric acid': 6000
+    hydrochloric acid: 6000
+    osmium solution: 1000
+  O:
+    osmium dust: 1
+    '[recycle] chlorine': 7000
+  eut: 30
+  dur: 15
+  group: osmium
+- m: volcanus
+  tier: LuV
+  I:
+    crude rhodium metal dust: 1
+    salt: 1
+    chlorine: 1000
+  O:
+    rhodium salt dust: 3
+  target:
+    crude rhodium metal dust: 20
+  eut: 120
+  dur: 5
+  heat: 600
+  coils: trinium
+  group: rhodium
+# - m: mixer
+- m: industrial mixing machine
+  tier: LuV
+  I:
+    rhodium salt dust: 1
+  O:
+    rhodium salt solution: 200
+  eut: 30
+  dur: 1.5
+  group: rhodium
+- m: large chemical reactor
+  tier: LuV
+  I:
+    rhodium salt solution: 1000
+    sodium nitrate dust: 1
+  O:
+    rhodium nitrate: 1
+    '[recycle] salt': 1
+  eut: 30
+  dur: 15
+  group: rhodium
+- m: industrial sifter
+  tier: LuV
+  I:
+    rhodium nitrate: 1
+  O:
+    rhodium filter cake dust: 0.95
+  eut: 30
+  dur: 30
+  group: rhodium
+# - m: mixer
+- m: industrial mixing machine
+  tier: LuV
+  I:
+    rhodium filter cake dust: 1
+  O:
+    rhodium filter cake solution: 1000
+  eut: 30
+  dur: 15
+  group: rhodium
+- m: large chemical reactor
+  tier: LuV
+  I:
+    rhodium filter cake solution: 1000
+  O:
+    reprecipitated rhodium dust: 1
+  eut: 30
+  dur: 15
+  group: rhodium
+- m: large chemical reactor
+  tier: LuV
+  I:
+    reprecipitated rhodium dust: 1
+    # '[rhod] hydrochloric acid': 1000
+    hydrochloric acid: 1000
+  O:
+    rhodium dust: 1
+    '[recycle] ammonia': 1000
+    '[recycle] chlorine': 1000
+  eut: 30
+  dur: 15
+  group: rhodium
+- m: large chemical reactor
+  tier: LuV
+  I:
+    sodium ruthenate dust: 6
+    chlorine: 3000
+  O:
+    ruthenium tetroxide solution: 9000
+  eut: 30
+  dur: 15
+  group: ruthenium
+- m: oil cracker
+  tier: LuV
+  I:
+    steam: 1000
+    ruthenium tetroxide solution: 1000
+  O:
+    hot ruthenium tetroxide solution: 2000
+  eut: 480
+  dur: 7.5
+  group: ruthenium
+- m: dangote - distillation tower
+  tier: LuV
+  I:
+    hot ruthenium tetroxide solution: 9000
+  O:
+    '[recycle] salt': 6
+    ruthenium tetroxide: 7200
+  eut: 480
+  dur: 75
+  group: ruthenium
+# - m: fluid solidifier
+- m: large processing factory
+  tier: LuV
+  I:
+    ruthenium tetroxide: 1000
+  O:
+    ruthenium tetroxide dust: 1
+  eut: 30
+  dur: 1.65
+  group: ruthenium
+- m: large chemical reactor
+  tier: LuV
+  I:
+    # '[ruth] hydrochloric acid': 6000
+    hydrochloric acid: 6000
+    ruthenium tetroxide dust: 1
+  O:
+    ruthenium dust: 1
+    '[recycle] chlorine': 6000
+  eut: 30
+  dur: 15
+  group: ruthenium
+
+# - m: fluid heater
+- m: fluid heater
+  tier: LuV
+  I: {}
+  O:
+    steam: 960
+  eut: 30
+  dur: 1.5
+  group: ruthenium
+- m: industrial centrifuge
+  tier: LuV
+  I:
+    sludge dust residue dust: 5
+  O:
+    gold dust: 2
+  eut: 10
+  dur: 2.25
+  group: iridium
+
+
+- m: industrial mixing machine
+  tier: LuV
+  I:
+    '[source] salt': 1
+  O:
+    salt water: 250
+  eut: 7
+  dur: 2.5
+  group: rare element prep
+# Low bandwidth, make in AE
+- m: large chemical reactor
+  tier: LuV
+  I:
+    # '[rhod] nitric acid': 1000
+    nitric acid: 1000
+    '[source] sodium dust': 1
+  O:
+    sodium nitrate dust: 5
+    '[recycle] hydrogen': 1000
+  eut: 60
+  dur: 0.4
+  group: rhodium
+
+- m: large chemical reactor
+  tier: LuV
+  I:
+    # '[rhod] nitric acid': 1000
+    "[recycle] chlorine": 1000
+    hydrogen: 1000
+  O:
+    "[recycle] hydrochloric acid": 1000
+  eut: 7
+  dur: 3
+  group: rhodium

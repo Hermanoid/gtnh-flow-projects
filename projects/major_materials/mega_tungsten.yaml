@@ -1,0 +1,83 @@
+- m: large processing factory
+  tier: LuV
+  I:
+    tungstate dust: 7
+    sodium hydroxide dust: 2
+  O:
+    lithium dust: 2
+    sodium tungstate: 1000
+  eut: 1920
+  dur: 5
+- m: large chemical reactor
+  tier: ZPM
+  I:
+    sodium tungstate: 1000
+    calcium chloride dust: 3
+  O:
+    scheelite dust: 6
+    salt: 4
+  eut: 480
+  dur: 5
+- m: large chemical reactor
+  tier: ZPM
+  I:
+    scheelite dust: 6
+    hydrochloric acid: 2000
+  O:
+    tungstic acid dust: 7
+    calcium chloride dust: 3
+  eut: 1920
+  dur: 2.5
+- m: volcanus
+  tier: LuV
+  I:
+    tungstic acid dust: 7
+  O:
+    tungsten trioxide dust: 4
+  eut: 480
+  dur: 10
+  heat: 1200
+  coils: trinium
+- m: volcanus
+  tier: LuV
+  I:
+    tungsten trioxide dust: 4
+    hydrogen: 6000
+  O:
+    tungsten dust: 1
+  # target:
+  #   tungsten dust: 8
+  number: 2
+  eut: 1920
+  dur: 5
+  heat: 1000
+  coils: trinium
+- m: industrial electrolyzer
+  tier: LuV
+  I:
+    salt: 2
+  O:
+    sodium dust: 1
+    chlorine: 1000
+  eut: 30
+  dur: 16
+- m: large chemical reactor
+  tier: ZPM
+  I:
+    sodium dust: 1
+    # water: 1000
+  O:
+    sodium hydroxide dust: 1
+    '[output] hydrogen': 500
+  eut: 30
+  dur: 10
+
+- m: large chemical reactor
+  tier: ZPM
+  I:
+    chlorine: 1000
+    hydrogen: 1000
+  O:
+    "[recycle] hydrochloric acid": 1000
+  eut: 7
+  dur: 3
