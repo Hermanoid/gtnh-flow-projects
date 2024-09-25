@@ -1,0 +1,61 @@
+- m: fusion
+  tier: ZPM
+  I:
+    tritium: 125
+    deuterium: 125
+  O:
+    helium plasma: 125
+  number: 64
+  eut: 4096
+  dur: 0.8
+  mk: 1
+  start: 1
+
+
+- m: EHE
+  tier: LV
+  I:
+    helium plasma: 800
+  O:
+    SC steam: 1966080
+    helium gas: 800
+  eut: 0
+  dur: 1
+
+- m: huge Duranium steam turbine
+  tier: LV
+  I:
+    # Per tick
+    SC steam: 6400
+  O:
+    EU: 1504000
+    SH steam: 6400
+  # target:
+  #   EU: 26214400 # 10A ZPM (*20 ticks -> seconds)
+  eut: 0
+  dur: 0.05
+
+- m: huge Duranium steam turbine
+  tier: LV
+  I:
+    # Per tick
+    SH steam: 102400
+  O:
+    EU: 240640
+    steam: 102400
+  # target:
+  #   EU: 26214400 # 10A ZPM (*20 ticks -> seconds)
+  eut: 0
+  dur: 0.05
+
+- m: huge Duranium steam turbine
+  tier: LV
+  I:
+    # Per tick
+    steam: 102400
+  O:
+    EU: 120320
+  # target:
+  #   EU: 26214400 # 10A ZPM (*20 ticks -> seconds)
+  eut: 0
+  dur: 0.05

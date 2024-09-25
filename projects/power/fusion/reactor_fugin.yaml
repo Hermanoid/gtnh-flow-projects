@@ -1,4 +1,4 @@
-- m: centrifuge
+- m: industrial centrifuge
   tier: LuV
   I:
     deuterium: 16
@@ -21,8 +21,8 @@
     deuterium: 125
   O:
     helium plasma: 125
-  number: 1
+  number: 64
   eut: 4096
   dur: 0.8
-  mk: 2
+  mk: 1
   start: 1

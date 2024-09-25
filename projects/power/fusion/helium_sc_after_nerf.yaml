@@ -1,0 +1,65 @@
+- m: fusion
+  tier: ZPM
+  I:
+    tritium: 125
+    deuterium: 125
+  O:
+    helium plasma: 125
+  number: 64
+  eut: 4096
+  dur: 0.8
+  mk: 1
+  start: 1
+
+
+- m: EHE
+  tier: LV
+  I:
+    helium plasma: 500
+    distilled water: 230400
+  O:
+    dense SC steam: 36864
+    helium gas: 500
+  eut: 0
+  dur: 1
+
+
+- m: huge Duranium steam turbine
+  tier: LV
+  I:
+    # Per tick
+    dense SC steam: 102.4
+  O:
+    EU: 245760
+    dense SH steam: 102.4
+  # target:
+  #   EU: 26214400 # 10A ZPM (*20 ticks -> seconds)
+  eut: 0
+  dur: 0.05
+
+
+- m: huge Duranium steam turbine
+  tier: LV
+  I:
+    # Per tick
+    dense SH steam: 102.4
+  O:
+    EU: 245760
+    dense steam: 102.4
+  # target:
+  #   EU: 26214400 # 10A ZPM (*20 ticks -> seconds)
+  eut: 0
+  dur: 0.05
+
+- m: huge Duranium steam turbine
+  tier: LV
+  I:
+    # Per tick
+    dense steam: 102.4
+  O:
+    EU: 122880
+    "[recycle] distilled water": 640
+  # target:
+  #   EU: 26214400 # 10A ZPM (*20 ticks -> seconds)
+  eut: 0
+  dur: 0.05
