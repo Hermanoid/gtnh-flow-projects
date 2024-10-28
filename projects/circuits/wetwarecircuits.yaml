@@ -1,0 +1,100 @@
+- m: bacterial vat
+  tier: UV
+  I:
+    mince meat: 4
+    salt: 4
+    calcium dust: 4
+    agar: 4
+    "[fresh] bacterial sludge": 3500
+    "[from recycle] bacterial sludge": 500
+  O:
+    raw growth catalyst medium: 1000
+  eut: 7680
+  dur: 60
+- m: LCR
+  tier: UV
+  I:
+    growth catalyst medium: 1000
+    osmiridium dust: 2
+    unknown crystal shard: 4
+  O:
+    stemcells: 64
+    '[recycle] bacterial sludge': 1000
+  eut: 30720
+  dur: 30
+  # group: bio catalyst medium
+
+- m: fluid heater
+  tier: UV
+  I:
+    raw growth catalyst medium: 100
+  O:
+    growth catalyst medium: 100
+  eut: 7680
+  dur: 1
+  # group: bio catalyst medium
+
+- m: bacterial vat
+  tier: UV
+  I:
+    mars stone dust: 16
+    distilled water: 4000
+  O:
+    "[fresh] bacterial sludge": 1000
+  eut: 1920
+  dur: 30
+  # group: bio catalyst medium
+
+- m: assline
+  tier: UV
+  I:
+    extreme wetware lifesupport circuit board: 1
+    stemcells: 16
+    reinforced glass tube: 16
+    tiny pbi fluid pipe: 8
+    enriched naquadah casing: 4
+    thin silicon rubber sheet: 64
+    tungstensteel bolt: 32
+    growth catalyst medium: 250
+    UU-matter: 250
+    ic2 coolant: 1000
+  O:
+    neuro processing unit: 1
+  eut: 122880
+  dur: 30
+
+- m: circuit assembly line
+  tier: UV
+  I: 
+    neuro processing unit: 16
+    crystal processing unit: 16
+    nanocomponent processing unit: 16
+    Advanced SMD Capacitor: 128
+    Advanced SMD Transistor: 128
+    4x Yttrium Barium Cuprate Wire: 8
+    indalloy: 72
+  O:
+    Wetwareprocessor: 16
+  eut: 38400
+  dur: 120
+  target:
+    Wetwareprocessor: 1
+
+- m: mars bee production cycle per second
+  tier: LV
+  I:
+    ur mom: 1
+  O:
+    mars comb: 0.35
+    mars stone dust: 0.1
+  eut: 0
+  dur: 1
+
+- m: industrial centrifuge
+  tier: UV
+  I:
+    mars comb: 1
+  O:
+    mars stone dust: 0.3
+  eut: 480
+  dur: 15

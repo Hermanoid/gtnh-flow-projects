@@ -470,7 +470,6 @@ class OverclockHandler:
             'boldarnator': self.modifyGTpp,
             'dangote - distillery': self.modifyGTpp,
             'thermic heating device': self.modifyGTpp,
-            'volcanus': self.modifyGTpp,
 
             # Special GT++ multis
             'dangote - distillation tower': lambda rec: self.modifyGTpp(rec, MAX_PARALLEL=12),

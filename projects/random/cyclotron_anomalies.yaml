@@ -1,0 +1,31 @@
+
+- m: Compact Cyclotron
+  tier: UV
+  I:
+    duranium: 40
+    unknown particle: 1
+  O:
+    quantum anomaly: 0.01
+  number: 0.5
+  eut: 491520
+  dur: 25
+
+- m: Compact Cyclotron
+  tier: UV
+  I:
+    hydrogen gas: 1000
+    hydrogen ion: 1
+  O:
+    unknown particle: 0.225
+    hydrogen plama: 100
+  eut: 30720
+  dur: 120
+
+- m: Compact Cyclotron
+  tier: UV
+  I:
+    hydrogen gas: 1000
+  O:
+    hydrogen ion: 0.45
+  eut: 30720
+  dur: 20

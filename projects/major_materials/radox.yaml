@@ -1,0 +1,172 @@
+- m: industrial centrifuge
+  tier: UEV
+  I:
+    super heavy radox: 1000
+  O:
+    heavy radox: 2000
+  eut: 491520
+  dur: 3000
+- m: dangote - distillation tower
+  tier: UHV
+  I:
+    raw radox: 5000
+  O:
+    heavy oil: 600
+    '[output] oil': 300
+    creosote oil: 1000
+    water: 1400
+    fermented bacterial sludge: 50
+    fermented biomass: 50
+    super heavy radox: 100
+    heavy radox: 150
+    diluted xenoxene: 50
+    light radox: 30
+    super light radox: 500
+  eut: 1966080
+  dur: 40
+- m: oil cracker
+  tier: UV
+  I:
+    silver plasma: 1
+    heavy radox: 100
+  O:
+    light radox: 20
+  eut: 491520
+  dur: 25
+- m: oil cracker
+  tier: UV
+  I:
+    silver plasma: 1
+    light radox: 90
+    "[recycle from cracked] light radox": 10
+  O:
+    super light radox: 50
+  eut: 491520
+  dur: 25
+- m: oil cracker
+  tier: UV
+  I:
+    silver plasma: 1
+    super light radox: 100
+  O:
+    cracked radox: 100
+  eut: 491520
+  dur: 25
+
+- m: dangote - distillation tower
+  tier: UV
+  I:
+    cracked radox: 1000
+  O:
+    radox gas: 100
+    "[recycle] light radox": 200
+    ash: 1
+  eut: 491520
+  dur: 30
+- m: lcr
+  tier: UV
+  I:
+    radox gas: 2160
+    oxygen plasma: 7500
+    titanium plasma: 100
+  O:
+    molten radox polymer: 720
+  target:
+    molten radox polymer: 2
+  eut: 491520
+  dur: 30
+
+- m: industrial coke oven
+  coils: electrum flux
+  tier: UEV
+  I:
+    barnada c wood: 8
+    "[fresh] xenoxene": 124.375
+    "[from recycle] xenoxene": 0.625
+  O:
+    raw radox: 250
+  eut: 491520
+  dur: 18
+- m: bacterial vat
+  tier: UEV
+  I:
+    antimony trioxide: 16
+    osmium dust: 16
+    oil: 20000
+  O:
+    "[fresh] xenoxene": 20000
+  # target:
+  #   "[fresh] xenoxene": 10000
+  eut: 7864320
+  dur: 300
+
+- m: dangote - distillation tower
+  tier: UV
+  I:
+    diluted xenoxene: 1000
+  O:
+    ash: 1
+    "[recycle] xenoxene": 250
+    "[recycle] light radox": 300
+  eut: 491520
+  dur: 30
+
+
+- m: fusion
+  tier: UV
+  mk: 3
+  start: 3
+  I:
+    molten gold: 144
+    molten arsenic: 144
+  O:
+    silver plasma: 144
+  eut: 49152
+  dur: 0.8
+
+- m: fusion
+  tier: UV
+  mk: 3
+  start: 1
+  I:
+    deuterium: 125
+    tritium: 125
+  O:
+    helium plasma: 125
+  eut: 4096
+  dur: 0.8
+
+- m: fusion
+  tier: UV
+  mk: 3
+  start: 1
+  I:
+    helium plasma: 144
+    molten lithium: 144
+  O:
+    boron plasma: 144
+  eut: 10240
+  dur: 12
+- m: fusion
+  tier: UV
+  mk: 3
+  start: 2
+  I:
+    boron plasma: 144
+    molten lithium: 144
+  O:
+    oxygen plasma: 144
+  eut: 49152
+  dur: 12
+
+- m: fusion
+  tier: UV
+  mk: 3
+  start: 2
+  I:
+    molten aluminium: 144
+    fluorine: 144
+  O:
+    titanium plasma: 144
+  eut: 49152
+  dur: 8

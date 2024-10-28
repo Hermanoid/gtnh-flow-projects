@@ -29,24 +29,24 @@
     SC steam: 6400
   O:
     EU: 1504000
-    SH steam: 6400
+    steam: 6400
   # target:
   #   EU: 26214400 # 10A ZPM (*20 ticks -> seconds)
   eut: 0
   dur: 0.05
 
-- m: huge Duranium steam turbine
-  tier: LV
-  I:
-    # Per tick
-    SH steam: 102400
-  O:
-    EU: 240640
-    steam: 102400
-  # target:
-  #   EU: 26214400 # 10A ZPM (*20 ticks -> seconds)
-  eut: 0
-  dur: 0.05
+# - m: huge Duranium steam turbine
+#   tier: LV
+#   I:
+#     # Per tick
+#     SH steam: 102400
+#   O:
+#     EU: 240640
+#     steam: 102400
+#   # target:
+#   #   EU: 26214400 # 10A ZPM (*20 ticks -> seconds)
+#   eut: 0
+#   dur: 0.05
 
 - m: huge Duranium steam turbine
   tier: LV
