@@ -1,0 +1,70 @@
+- m: circuit assembly line
+  tier: UV
+  I: 
+    bio processing unit: 16
+    raw advanced crystal chip: 16
+    other stuff: 1
+    
+  O:
+    Wetwareprocessor: 16
+  eut: 38400
+  dur: 120
+  target:
+    Wetwareprocessor: 1
+
+- m: assline
+  tier: UHV
+  I:
+    ultra bio mutated circuit board: 1
+    biocells: 16
+    sterilized bio catalyst medium: 500
+    other stuff: 1
+  O:
+    bio processing unit: 1
+  eut: 983040
+  dur: 30
+
+- m: PCB Factory
+  tier: ZPM
+  I:
+    sterilized bio catalyst medium: 5656
+    kevlar plate (no nanites): 1
+    other stuff: 1
+  O:
+    ultra bio mutated circuit board: 12
+  eut: 92160
+  dur: 22.15
+
+- m: mcr
+  tier: UV
+  I:
+    stemcells: 32
+    cosmic neutronium dust: 4
+    sterilized bio catalyst medium: 2000
+  O:
+    biocells: 32
+    mutagen: 2000
+  eut: 491520
+  dur: 60
+
+- m: mcr
+  tier: UV
+  I:
+    unknown crystal shard: 4
+    osmiridium dust: 2
+    growth catalyst medium: 1000
+  O:
+    stemcells: 64
+    bacterial sludge: 1000
+  eut: 30720
+  dur: 30
+
+- m: thermic heating device
+  tier: UV
+  I:
+    raw bio catalyst medium: 100
+  O:
+    sterilized bio catalyst medium: 100
+  eut: 30720
+  dur: 1
+
