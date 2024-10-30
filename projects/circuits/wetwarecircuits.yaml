@@ -43,6 +43,8 @@
     "[fresh] bacterial sludge": 1000
   eut: 1920
   dur: 30
+  target:
+    mars stone dust: 150
   # group: bio catalyst medium
 
 - m: assline
@@ -77,8 +79,8 @@
     Wetwareprocessor: 16
   eut: 38400
   dur: 120
-  target:
-    Wetwareprocessor: 1
+  # target:
+  #   Wetwareprocessor: 1
 
 - m: mars bee production cycle per second
   tier: LV
