@@ -1,14 +1,14 @@
 - m: bacterial vat
   tier: UV
   I:
-    mince meat: 4
-    salt: 4
-    calcium dust: 4
+    mince meat: 8
+    salt: 8
+    calcium dust: 8
     agar: 4
     "[fresh] bacterial sludge": 3500
     "[from recycle] bacterial sludge": 500
   O:
-    raw growth catalyst medium: 1000
+    raw growth catalyst medium: 2000
   eut: 7680
   dur: 60
 - m: LCR

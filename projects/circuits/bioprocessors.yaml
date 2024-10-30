@@ -4,13 +4,12 @@
     bio processing unit: 16
     raw advanced crystal chip: 16
     other stuff: 1
-    
   O:
-    Wetwareprocessor: 16
-  eut: 38400
+    bioprocessor: 16
+  eut: 153600
   dur: 120
-  target:
-    Wetwareprocessor: 1
+  # target:
+  #   bioprocessor: 0.3
 
 - m: assline
   tier: UHV
@@ -35,7 +34,7 @@
   eut: 92160
   dur: 22.15
 
-- m: mcr
+- m: lcr
   tier: UV
   I:
     stemcells: 32
@@ -43,11 +42,11 @@
     sterilized bio catalyst medium: 2000
   O:
     biocells: 32
-    mutagen: 2000
+    "[recycle] mutagen": 2000
   eut: 491520
   dur: 60
 
-- m: mcr
+- m: lcr
   tier: UV
   I:
     unknown crystal shard: 4
@@ -55,7 +54,7 @@
     growth catalyst medium: 1000
   O:
     stemcells: 64
-    bacterial sludge: 1000
+    "[recycle] bacterial sludge": 1000
   eut: 30720
   dur: 30
 
@@ -68,3 +67,79 @@
   eut: 30720
   dur: 1
 
+- m: bacterial vat
+  tier: ZPM
+  I:
+    stemcells: 16
+    unknown crystal shard: 16
+    TcetiE-Seaweed Extract: 8
+    tiny pile of infinity catalyst dust: 4
+    raw growth catalyst medium: 5000
+  O:
+    raw bio catalyst medium: 5000
+  number: 20
+  eut: 122880
+  dur: 180
+
+- m: large processing factory
+  tier: UV
+  I:
+    mysterious crystal dust: 1
+  O:
+    unknown crystal shard: 1
+  eut: 480
+  dur: 120
+
+- m: large processing factory
+  tier: UEV
+  I:
+    T Ceti E Seaweed: 64
+  O:
+    TcetiE-Seaweed Extract: 1
+  eut: 262144
+  dur: 180
+
+# - m: industrial centrifuge
+#   tier: UEV
+#   I: 
+#     seaweed comb: 1
+#   O:
+#     T Ceti E Seaweed: 1
+#     beeswax: 0.5
+#   eut: 491520
+#   dur: 5
+
+- m: industrial centrifuge
+  tier: UEV
+  I: 
+    seaweed broth: 1000
+  O:
+    T Ceti E Seaweed: 64
+  eut: 491520
+  dur: 2
+
+- m: bacterial vat
+  tier: UV
+  I:
+    energium dust: 8
+    mytryl dust: 1
+    seaweed: 64
+    unknown nutrient agar: 50000
+  O:
+    seaweed broth: 50000
+  eut: 491520
+  dur: 60
+
+- m: lcr
+  tier: UV
+  I:
+    agar: 8
+    stemcells: 16
+    salt: 64
+    unknown liquid: 4000
+    phthalic acid: 3000
+    meat extract: 1000
+  O:
+    unknown nutrient agar: 8000
+  eut: 491520
+  dur: 60
