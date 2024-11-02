@@ -3,13 +3,13 @@
   I: 
     bio processing unit: 16
     raw advanced crystal chip: 16
+    # "[bioprocessor] raw advanced crystal chip": 16
     other stuff: 1
   O:
     bioprocessor: 16
   eut: 153600
   dur: 120
-  # target:
-  #   bioprocessor: 0.3
+  group: circuit time
 
 - m: assline
   tier: UHV
@@ -20,8 +20,10 @@
     other stuff: 1
   O:
     bio processing unit: 1
+  number: 16
   eut: 983040
   dur: 30
+  group: circuit time
 
 - m: PCB Factory
   tier: ZPM
@@ -33,9 +35,10 @@
     ultra bio mutated circuit board: 12
   eut: 92160
   dur: 22.15
+  group: circuit time
 
 - m: lcr
-  tier: UV
+  tier: UEV
   I:
     stemcells: 32
     cosmic neutronium dust: 4
@@ -45,6 +48,7 @@
     "[recycle] mutagen": 2000
   eut: 491520
   dur: 60
+  group: bio catalyst medium
 
 - m: thermic heating device
   tier: UV
@@ -54,9 +58,10 @@
     sterilized bio catalyst medium: 100
   eut: 30720
   dur: 1
+  group: bio catalyst medium
 
 - m: bacterial vat
-  tier: ZPM
+  tier: UV
   I:
     stemcells: 16
     unknown crystal shard: 16
@@ -65,9 +70,9 @@
     raw growth catalyst medium: 5000
   O:
     raw bio catalyst medium: 5000
-  number: 20
   eut: 122880
   dur: 180
+  group: bio catalyst medium
 
 - m: large processing factory
   tier: UV
@@ -77,6 +82,7 @@
     unknown crystal shard: 1
   eut: 480
   dur: 120
+  group: bio catalyst medium
 
 - m: large processing factory
   tier: UEV
@@ -86,25 +92,17 @@
     TcetiE-Seaweed Extract: 1
   eut: 262144
   dur: 180
-
-# - m: industrial centrifuge
-#   tier: UEV
-#   I: 
-#     seaweed comb: 1
-#   O:
-#     T Ceti E Seaweed: 1
-#     beeswax: 0.5
-#   eut: 491520
-#   dur: 5
+  group: bio catalyst medium
 
 - m: industrial centrifuge
-  tier: UEV
+  tier: UV
   I: 
     seaweed broth: 1000
   O:
     T Ceti E Seaweed: 64
   eut: 491520
   dur: 2
+  group: bio catalyst medium
 
 - m: bacterial vat
   tier: UV
@@ -117,9 +115,10 @@
     seaweed broth: 50000
   eut: 491520
   dur: 60
+  group: bio catalyst medium
 
 - m: lcr
-  tier: UV
+  tier: UEV
   I:
     agar: 8
     stemcells: 16
@@ -131,20 +130,11 @@
     unknown nutrient agar: 8000
   eut: 491520
   dur: 60
+  group: bio catalyst medium
 
 
 #########################################################
 
-- m: PCB Factory
-  tier: ZPM
-  I:
-    growth catalyst medium: 5656
-    kevlar plate (no nanites): 1
-    other stuff: 1
-  O:
-    extreme wetware lifesupport circuit board: 16
-  eut: 92160
-  dur: 22.15
 
 - m: mars bee production cycle per second
   tier: LV
@@ -155,6 +145,7 @@
     mars stone dust: 0.1
   eut: 0
   dur: 1
+  group: growth catalyst medium
 
 - m: industrial centrifuge
   tier: UV
@@ -164,9 +155,10 @@
     mars stone dust: 0.3
   eut: 480
   dur: 15
+  group: growth catalyst medium
 
 - m: bacterial vat
-  tier: UV
+  tier: ZPM
   I:
     mars stone dust: 16
     distilled water: 4000
@@ -174,10 +166,10 @@
     "[fresh] bacterial sludge": 1000
   eut: 1920
   dur: 30
-  # group: bio catalyst medium
+  group: growth catalyst medium
 
 - m: bacterial vat
-  tier: UV
+  tier: ZPM
   I:
     mince meat: 8
     salt: 8
@@ -189,17 +181,18 @@
     raw growth catalyst medium: 2000
   eut: 7680
   dur: 60
+  group: growth catalyst medium
 
 
 - m: fluid heater
-  tier: UV
+  tier: ZPM
   I:
     raw growth catalyst medium: 100
   O:
     growth catalyst medium: 100
   eut: 7680
   dur: 1
-  # group: bio catalyst medium
+  group: growth catalyst medium
 
 
 
@@ -214,14 +207,26 @@
     "[recycle] bacterial sludge": 1000
   eut: 30720
   dur: 30
+  group: growth catalyst medium
 
 
+- m: PCB Factory
+  tier: ZPM
+  I:
+    growth catalyst medium: 5656
+    kevlar plate (no nanites): 1
+    other stuff: 1
+  O:
+    extreme wetware lifesupport circuit board: 16
+  eut: 92160
+  dur: 22.15
+  group: circuit time
 
 - m: circuit assembly line
   tier: UV
   I: 
     extreme wetware lifesupport circuit board: 16
-    living crystal chips: 16
+    living crystal chip: 16
     4x yittrium barium cuprate wire: 8
     cosmic neutronium bolt: 64
     indalloy: 144
@@ -231,65 +236,128 @@
     Wetwareprocessor: 1
   eut: 38400
   dur: 120
+  group: circuit time
 
 
-# - m: large processing factory
-#   tier: UV
-#   I:
-#     raw advanced crystal chip: 1
-#     sterilized bio catalyst medium: 50
-#   O:
-#     living crystal chip: 1
-#   eut: 160000
-#   dur: 50
+- m: mixer
+  tier: UHV
+  I:
+    gelatin: 1
+    distilled water: 1000
+  O:
+    agar: 1
+  eut: 480
+  dur: 30
+  group: growth catalyst medium
+- m: centrifuge
+  tier: UV
+  I:
+    gelatinmixture: 6000
+  O:
+    gelatin: 4
+    '[recycle] phosphorus dust': 1
+  eut: 480
+  dur: 120
+  group: growth catalyst medium
+- m: LCR
+  tier: ZPM
+  I:
+    phosphoric acid: 1000
+    # water: 3000
+    collagen: 4
+  O:
+    gelatinmixture: 4000
+  eut: 480
+  dur: 80
+  group: growth catalyst medium
+- m: LCR
+  tier: UV
+  I:
+    mince meat: 1
+    bone meal: 2
+    sulfuric acid: 333.3333
+  O:
+    collagen: 1
+    # '[recycle] water': 500
+  eut: 480
+  dur: 40
+  group: growth catalyst medium
+- m: LCR
+  tier: ZPM
+  I:
+    # water: 1500
+    oxygen: 2500
+    phosphorus dust: 1
+  O:
+    phosphoric acid: 1000
+  eut: 480
+  dur: 80
+  group: growth catalyst medium
 
-# - m: large processing factory
-#   tier: UV
-#   I:
-#     exquisite CeLuAG: 1
-#   O:
-#     raw advanced crystal chip: 16
-#   eut: 160000
-#   dur: 40
 
-# - m: utupu-tanuri
-#   tier: UV
-#   I:
-#     "[from loop] CeLuAG dust": 1
-#     molten CeLuAG blend: 108
-#   O:
-#     exquisite CeLuAG: 1
-#   coils: electrum flux
-#   heat: 9001
-#   eut: 160000
-#   dur: 40
+- m: large processing factory
+  tier: UV
+  I:
+    raw advanced crystal chip: 1
+    sterilized bio catalyst medium: 50
+  O:
+    living crystal chip: 1
+  eut: 160000
+  dur: 50
+  group: circuit time
+
+- m: large processing factory
+  tier: UV
+  I:
+    "[loop out] exquisite CeLuAG": 1
+  O:
+    raw advanced crystal chip: 16
+  eut: 160000
+  dur: 40
+  group: celuag
+
+- m: utupu-tanuri
+  tier: UV
+  I:
+    CeLuAG dust: 1
+    molten CeLuAG blend: 108
+  O:
+    "[loop] exquisite CeLuAG": 0.25
+    "[loop out] exquisite CeLuAG": 0.75
+  coils: electrum flux
+  heat: 9001
+  eut: 160000
+  dur: 40
+  group: celuag
   
-# - m: macerator
-#   tier: ZPM
-#   I:
-#     exquisite CeLuAG: 1
-#   O:
-#     CeLuAG dust: 3
-#     "[loop] CeLuAG dust": 1
-#   eut: 2
-#   dur: 20
+- m: macerator
+  tier: ZPM
+  I:
+    "[from loop] exquisite CeLuAG": 1
+  O:
+    CeLuAG dust: 4
+  eut: 2
+  dur: 20
+  group: celuag
 
-# - m: large processing factory
-#   tier: UV
-#   I:
-#     CeLuAG blend: 1
-#   O:
-#     molten CeLuAG blend: 144
-#   eut: 2
-#   dur: 15
+- m: large processing factory
+  tier: UV
+  I:
+    CeLuAG blend: 1
+  O:
+    molten CeLuAG blend: 144
+  eut: 2
+  dur: 15
+  group: celuag
 
-# - m: industrial mixing machine
-#   tier: UV
-#   I:
-#     cerium dust: 1
-#     lutetium dust: 60
-#     sapphire dust: 100
-#   O:
-#     CeLuAG blend: 160
-#   eut: 2
-#   dur: 15
+- m: industrial mixing machine
+  tier: UV
+  I:
+    cerium dust: 1
+    lutetium dust: 60
+    sapphire dust: 100
+  O:
+    CeLuAG blend: 160
+  eut: 2
+  dur: 15
+  group: celuag

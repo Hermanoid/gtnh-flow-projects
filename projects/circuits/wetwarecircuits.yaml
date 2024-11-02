@@ -1,5 +1,5 @@
 - m: bacterial vat
-  tier: UV
+  tier: ZPM
   I:
     mince meat: 8
     salt: 8
@@ -24,8 +24,8 @@
   dur: 30
   # group: bio catalyst medium
 
-- m: fluid heater
-  tier: UV
+- m: thermic heating devices
+  tier: ZPM
   I:
     raw growth catalyst medium: 100
   O:
@@ -35,7 +35,7 @@
   # group: bio catalyst medium
 
 - m: bacterial vat
-  tier: UV
+  tier: ZPM
   I:
     mars stone dust: 16
     distilled water: 4000
