@@ -20,7 +20,7 @@
     other stuff: 1
   O:
     bio processing unit: 1
-  number: 16
+  # number: 8
   eut: 983040
   dur: 30
   group: circuit time
@@ -70,6 +70,7 @@
     raw growth catalyst medium: 5000
   O:
     raw bio catalyst medium: 5000
+  number: 12
   eut: 122880
   dur: 180
   group: bio catalyst medium
@@ -232,8 +233,9 @@
     indalloy: 144
   O:
     Wetwareprocessor: 16
-  target:
-    Wetwareprocessor: 1
+  # target:
+  #   Wetwareprocessor: 1
+  number: 2
   eut: 38400
   dur: 120
   group: circuit time
@@ -249,7 +251,7 @@
   eut: 480
   dur: 30
   group: growth catalyst medium
-- m: centrifuge
+- m: industrial centrifuge
   tier: UV
   I:
     gelatinmixture: 6000

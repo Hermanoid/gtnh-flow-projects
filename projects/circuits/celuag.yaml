@@ -1,0 +1,63 @@
+
+# - m: large processing factory
+#   tier: UV
+#   I:
+#     raw advanced crystal chip: 1
+#     sterilized bio catalyst medium: 50
+#   O:
+#     living crystal chip: 1
+#   eut: 160000
+#   dur: 50
+
+# - m: large processing factory
+#   tier: UV
+#   I:
+#     exquisite CeLuAG: 1
+#   O:
+#     raw advanced crystal chip: 16
+#   eut: 160000
+#   dur: 40
+
+- m: utupu-tanuri
+  tier: UHV
+  I:
+    CeLuAG dust: 1
+    molten CeLuAG blend: 108
+  O:
+    "[recycle] (loop) exquisite CeLuAG": 0.25
+    "(output) exquisite CeLuAG": 0.75
+  coils: electrum flux
+  number: 1
+  heat: 9001
+  eut: 160000
+  dur: 40
+  
+- m: macerator
+  tier: ZPM
+  I:
+    "(loop) exquisite CeLuAG": 1
+  O:
+    CeLuAG dust: 4
+    # CeLuAG dust: 1
+  eut: 2
+  dur: 20
+
+- m: fluid extractor
+  tier: ZPM
+  I:
+    CeLuAG blend: 1
+  O:
+    molten CeLuAG blend: 144
+  eut: 2
+  dur: 15
+
+- m: mixer
+  tier: ZPM
+  I:
+    cerium dust: 1
+    lutetium dust: 60
+    sapphire dust: 100
+  O:
+    CeLuAG blend: 160
+  eut: 2
+  dur: 15
