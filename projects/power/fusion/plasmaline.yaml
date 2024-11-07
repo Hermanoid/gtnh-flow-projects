@@ -282,10 +282,10 @@
   start: 3
 
 - m: Huge Infinity XL Turbo
-  tier: UHV
+  tier: LV
   I:
     celestial tungsten plasma: 911
   O:
-    eu: 96_748_200
-  dur: 0.05
+    eu: 1934964000
+  dur: 1
   eut: 0
