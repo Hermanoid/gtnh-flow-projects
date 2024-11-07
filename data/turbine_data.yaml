@@ -28,9 +28,11 @@ gas_fuels:
   # not doing the rest unless needed
 
 plasma_fuels:
+  celestial tungsten: 720_000
   americium: 501_760
   radon: 450_560
   bismuth: 425_984  
+  runite: 350_000
   tin: 304_496
   silver: 282_685
   niobium: 269_516
@@ -40,6 +42,7 @@ plasma_fuels:
   titanium: 196_608
   calcium: 188_416
   sulfur: 170_393
+  force: 150_000
   oxygen: 131_072
   nitrogen: 129_024
   boron: 112_640

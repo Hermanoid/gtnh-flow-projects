@@ -1,0 +1,291 @@
+## Molten Things
+- m: large processing factory
+  tier: ZPM
+  I:
+    lithium dust: 1
+  O:
+    molten lithium: 144
+  eut: 30
+  dur: 1.2
+
+- m: fluid extractor
+  tier: ZPM
+  I:
+    magnesium dust: 1
+  O:
+    molten magnesium: 144
+  eut: 42
+  dur: 1.2
+
+- m: fluid extractor
+  tier: ZPM
+  I:
+    bedrockium ingot: 1
+  O:
+    molten bedrockium: 144
+  eut: 140
+  dur: 1.2
+
+- m: abs
+  tier: ZPM
+  I:
+    cobalt dust: 1
+    nitrogen: 1000
+  O:
+    molten cobalt: 144
+  eut: 120
+  dur: 56
+
+- m: abs
+  tier: ZPM
+  I:
+    silicon dioxide: 3
+    carbon: 2
+  O:
+    molten raw silicon: 144
+  eut: 120
+  dur: 3.2
+
+- m: abs
+  tier: UV
+  I:
+    tungsten titanium carbide dust: 3
+    terra crystal powder: 1
+    ignis crystal dust: 1
+    perditio crystal powder: 1
+  O:
+    molten titansteel: 864
+  eut: 491520
+  dur: 480
+
+- m: fluid extractor
+  tier: ZPM
+  I:
+    plutonium-241 dust: 1
+  O:
+    molten plutonium-241: 144
+  eut: 42
+  dur: 1.2
+
+- m: volcanus
+  tier: UIV
+  I:
+    tartarite dust: 1
+    oganesson: 100
+  O:
+    hot tartarite ingot: 1
+  eut: 1966080
+  dur: 345
+  heat: 10400
+  coils: awakened draconium
+
+- m: vacuum freezer
+  tier: UHV
+  I:
+    hot tartarite ingot: 1
+  O:
+    tartarite ingot: 1
+  eut: 120
+  dur: 14.7
+
+- m: fluid extractor
+  tier: ZPM
+  I:
+    tartarite ingot: 1
+  O:
+    molten tartarite: 144
+  eut: 144
+  dur: 1.2
+
+
+# PLASMA (Roughly in order)
+
+- m: fusion
+  tier: UHV
+  I:
+    deuterium: 1125
+    tritium: 125
+  O:
+    helium plasma: 125
+  eut: 4096
+  dur: 0.8
+  mk: 3
+  start: 1
+  
+- m: fusion
+  tier: UHV
+  I:
+    helium plasma: 144
+    molten lithium: 144
+  O:
+    boron plasma: 144
+  eut: 10240
+  dur: 12
+  mk: 3
+  start: 1
+
+- m: fusion
+  tier: UHV
+  I:
+    molten magnesium: 128
+    oxygen: 128
+  O:
+    calcium plasma: 16
+  eut: 7680
+  dur: 6.4
+  mk: 3
+  start: 1
+
+- m: fusion
+  tier: UHV
+  I:
+    boron plasma: 144
+    calcium plasma: 16
+  O:
+    neon plasma: 1000
+  eut: 30720
+  dur: 3.2
+  mk: 3
+  start: 1
+
+- m: fusion
+  tier: UHV
+  I:
+    neon plasma: 144
+    molten bedrockium: 144
+  O:
+    force plasma: 1000
+  eut: 30720
+  dur: 3.2
+  mk: 3
+  start: 1
+
+- m: fusion
+  tier: UHV
+  I:
+    molten cobalt: 144
+    molten raw silicon: 144
+  O:
+    niobium plasma: 144
+  eut: 49152
+  dur: 0.8
+  mk: 3
+  start: 2
+
+- m: fusion
+  tier: UHV
+  I:
+    molten copper: 72
+    tritium: 250
+  O:
+    zinc plasma: 72
+  eut: 49152
+  dur: 0.8
+  mk: 3
+  start: 2
+
+- m: fusion
+  tier: UHV
+  I:
+    niobium plasma: 144
+    zinc plasma: 144
+  O:
+    krypton plasma: 144
+  eut: 122880
+  dur: 1.6
+  mk: 3
+  start: 2
+
+- m: fusion
+  tier: UHV
+  I:
+    krypton plasma: 144
+    force plasma: 1000
+  O:
+    astral titanium plasma: 1000
+  eut: 122880
+  dur: 1.6
+  mk: 3
+  start: 2
+  
+- m: fusion
+  tier: UHV
+  I:
+    astral titanium plasma: 144
+    molten titansteel: 8
+  O:
+    runite plasma: 1000
+  eut: 122880
+  dur: 1.6
+  mk: 3
+  start: 2
+
+- m: fusion
+  tier: UHV
+  I:
+    molten plutonium-241: 144
+    hydrogen: 2000
+  O:
+    americium plasma: 144
+  eut: 98304
+  dur: 3.2
+  mk: 3
+  start: 3
+
+- m: fusion
+  tier: UHV
+  I:
+    molten plutonium-241: 144
+    helium: 1000
+  O:
+    molten curium: 144
+  eut: 98304
+  dur: 4.8
+  mk: 3
+  start: 3
+
+- m: fusion
+  tier: UHV
+  I:
+    molten curium: 144
+    americium plasma: 144
+  O:
+    xenon plasma: 144
+  eut: 491520
+  dur: 0.8
+  mk: 3
+  start: 3
+
+- m: fusion
+  tier: UHV
+  I:
+    xenon plasma: 144
+    runite plasma: 1000
+  O:
+    advanced nitinol plasma: 1000
+  eut: 491520
+  dur: 0.8
+  mk: 3
+  start: 3
+
+- m: fusion
+  tier: UHV
+  I:
+    advanced nitinol plasma: 144
+    molten tartarite: 2
+  O:
+    celestial tungsten plasma: 1000
+  number: 64
+  eut: 491520
+  dur: 0.8
+  mk: 3
+  start: 3
+
+- m: Huge Infinity XL Turbo
+  tier: UHV
+  I:
+    celestial tungsten plasma: 911
+  O:
+    eu: 96_748_200
+  dur: 0.05
+  eut: 0
