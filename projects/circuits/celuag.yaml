@@ -28,7 +28,7 @@
     "(output) exquisite CeLuAG": 0.75
   coils: electrum flux
   number: 1
-  heat: 9001
+  heat: 9100
   eut: 160000
   dur: 40
   
