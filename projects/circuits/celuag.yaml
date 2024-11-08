@@ -28,7 +28,7 @@
     "(output) exquisite CeLuAG": 0.75
   coils: electrum flux
   number: 1
-  heat: 9001
+  heat: 9100
   eut: 160000
   dur: 40
   
@@ -52,12 +52,12 @@
   dur: 15
 
 - m: mixer
-  tier: ZPM
+  tier: UV
   I:
     cerium dust: 1
     lutetium dust: 60
     sapphire dust: 100
   O:
     CeLuAG blend: 160
-  eut: 2
-  dur: 15
+  eut: 491520
+  dur: 5

@@ -133,6 +133,16 @@
   dur: 60
   group: bio catalyst medium
 
+- m: large processing factory
+  tier: UV
+  I:
+    mince meat: 1
+  O:
+    meat extract: 125
+  eut: 120
+  dur: 15
+  group: bio catalyst medium
+
 
 #########################################################
 
@@ -180,12 +190,12 @@
     "[from recycle] bacterial sludge": 500
   O:
     raw growth catalyst medium: 2000
-  eut: 7680
+  eut: 30720
   dur: 60
   group: growth catalyst medium
 
 
-- m: fluid heater
+- m: thermic heating device
   tier: ZPM
   I:
     raw growth catalyst medium: 100
