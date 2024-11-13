@@ -75,7 +75,7 @@
   O:
     hot tartarite ingot: 1
   eut: 1966080
-  dur: 345
+  dur: 34.5
   heat: 10400
   coils: awakened draconium
 
@@ -109,7 +109,7 @@
     helium plasma: 125
   eut: 4096
   dur: 0.8
-  mk: 3
+  mk: 1
   start: 1
   
 - m: fusion
@@ -121,7 +121,7 @@
     boron plasma: 144
   eut: 10240
   dur: 12
-  mk: 3
+  mk: 1
   start: 1
 
 - m: fusion
@@ -133,7 +133,7 @@
     calcium plasma: 16
   eut: 7680
   dur: 6.4
-  mk: 3
+  mk: 1
   start: 1
 
 - m: fusion
@@ -145,7 +145,7 @@
     neon plasma: 1000
   eut: 30720
   dur: 3.2
-  mk: 3
+  mk: 1
   start: 1
 
 - m: fusion
@@ -157,7 +157,7 @@
     force plasma: 1000
   eut: 30720
   dur: 3.2
-  mk: 3
+  mk: 1
   start: 1
 
 - m: fusion
@@ -169,7 +169,7 @@
     niobium plasma: 144
   eut: 49152
   dur: 0.8
-  mk: 3
+  mk: 2
   start: 2
 
 - m: fusion
@@ -181,7 +181,7 @@
     zinc plasma: 72
   eut: 49152
   dur: 0.8
-  mk: 3
+  mk: 2
   start: 2
 
 - m: fusion
@@ -193,7 +193,7 @@
     krypton plasma: 144
   eut: 122880
   dur: 1.6
-  mk: 3
+  mk: 2
   start: 2
 
 - m: fusion
@@ -205,7 +205,7 @@
     astral titanium plasma: 1000
   eut: 122880
   dur: 1.6
-  mk: 3
+  mk: 2
   start: 2
   
 - m: fusion
@@ -217,7 +217,7 @@
     runite plasma: 1000
   eut: 122880
   dur: 1.6
-  mk: 3
+  mk: 2
   start: 2
 
 - m: fusion
@@ -289,3 +289,13 @@
     eu: 1934964000
   dur: 1
   eut: 0
+
+
+# - m: Huge Duranium XL Turbo (fast mode)
+#   tier: LV
+#   I:
+#     celestial tungsten plasma: 342
+#   O:
+#     eu: 578664000
+#   dur: 1
+#   eut: 0
