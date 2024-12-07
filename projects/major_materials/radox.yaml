@@ -7,7 +7,7 @@
   eut: 491520
   dur: 3000
 - m: dangote - distillation tower
-  tier: UHV
+  tier: UEV
   I:
     raw radox: 5000
   O:
@@ -84,9 +84,10 @@
     "[fresh] xenoxene": 124.375
     "[from recycle] xenoxene": 0.625
   O:
-    raw radox: 250
+    raw radox: 125
   eut: 491520
   dur: 18
+
 - m: bacterial vat
   tier: UEV
   I:
@@ -98,7 +99,7 @@
   # target:
   #   "[fresh] xenoxene": 10000
   eut: 7864320
-  dur: 300
+  dur: 180
 
 - m: dangote - distillation tower
   tier: UV
