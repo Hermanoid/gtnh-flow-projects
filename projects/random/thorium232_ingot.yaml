@@ -1,0 +1,151 @@
+- m: electric blast furnace
+  tier: EV
+  I:
+    zn-th alloy ingot: 1
+    helium: 250
+  O:
+    thorium 232 dust: 1
+    molten zinc: 144
+  eut: 480
+  dur: 2.8
+  coils: tungstensteel
+  heat: 1900
+  target: 
+    thorium 232 dust: 1
+- m: electric blast furnace
+  tier: IV
+  I:
+    zinc chloride dust: 3
+    calcium dust: 3
+    thorium-232 tetrafluoride: 1000
+  O:
+    zn-th alloy ingot: 1
+    fluorspar dust: 6
+    calcium chloride: 3000
+  eut: 120
+  dur: 15
+  coils: tungstensteel
+  heat: 3000
+- m: electrolyzer
+  tier: HV
+  I:
+    thorium tetrafluoride: 1000
+  O:
+    "[recycle] thorium dust": 0.25
+    thorium-232 tetrafluoride: 750
+  eut: 480
+  dur: 5
+- m: large chemical reactor
+  tier: HV
+  I:
+    hydrofluoric acid: 4000
+    thorium hydroxide dust: 9
+  O:
+    thorium tetrafluoride: 1000
+  eut: 30
+  dur: 20
+- m: large chemical reactor
+  tier: EV
+  I:
+    sodium hydroxide dust: 12
+    thorium nitrate: 1000
+  O:
+    thorium hydroxide dust: 9
+    sodium nitrate dust: 20
+  eut: 120
+  dur: 10
+- m: large chemical reactor
+  tier: HV
+  I:
+    nitric acid: 8000
+    hydrofluoric acid: 100
+    thorium dust: 1
+  O:
+    thorium nitrate: 1000
+    nitrogen dioxide: 4000
+  eut: 120
+  dur: 2
+
+
+# Recycle things
+
+- m: large chemical reactor
+  tier: HV
+  I:
+    nitrogen dioxide: 2000
+    oxygen: 1000
+  O:
+    "[recycle] nitric acid": 2000
+  eut: 30
+  dur: 16
+
+- m: fluid solidifer
+  tier: HV
+  I:
+    "molten zinc": 144
+  O:
+    zinc ingot: 1
+  eut: 4
+  dur: 0.8
+
+- m: macerator
+  tier: HV
+  I:
+    zinc ingot: 1
+  O:
+    "[reprocess] zinc dust": 1
+  eut: 4
+  dur: 3.25
+
+  
+- m: large chemical reactor
+  tier: HV
+  I:
+    "[reprocess] zinc dust": 1
+    chlorine: 2000
+  O:
+    "[recycle] zinc chloride dust": 3
+  eut: 120
+  dur: 2
+
+  
+- m: fluid solidifier
+  tier: HV
+  I:
+    calcium chloride: 1000
+  O:
+    calcium chloride dust: 1
+  eut: 30
+  dur: 1.8
+
+- m: electrolyzer
+  tier: HV
+  I:
+    calcium chloride dust: 1
+  O:
+    calcium dust: 1
+    "[recycle] chlorine": 2000
+  eut: 60
+  dur: 1.35
+
+# You can recycle sodium nitrate via sulfuric acid, I didn't feel like adding it here
+
+- m: electrolyzer
+  tier: HV
+  I:
+    fluorspar dust: 3
+  O:
+    calcium dust: 1
+    fluorine: 2000
+  eut: 60
+  dur: 0.95
+
+- m: lcr
+  tier: HV
+  I:
+    fluorine: 1000
+    hydrogen: 1000
+  O:
+    "[recycle] hydrofluoric acid": 2000
+  eut: 8
+  dur: 3
