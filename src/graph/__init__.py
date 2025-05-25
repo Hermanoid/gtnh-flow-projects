@@ -64,6 +64,14 @@ machine_identity_groups = [
     ['industrial dehydrator', {'utupu', 'utupu-tanuri', 'utupu tanuri', 'dehydrator++'}],
     ['flotation cell regulator', {'flotation cell'}],
     ['isamill grinding machine', {'isamill'}],
+    ['magnetic flux exhibitor', {'mfe++', "mfe", 'industrial electromagnetic separator', 'industrial polarizer'}],
+    ['dissection apparatus', {'extractor++', 'industrial extractor'}],
+    ['industrial autoclave', {'autoclave++', 'industrial autoclave'}],
+    ['fluid shaper', {'fluid solidifer++', 'industrial fluid solidifier', 'industrial tool casting machine'}],
+    ['large electric compressor', {"compressor++", 'lec', 'industrial compressor'}],
+    ['big barrel brewery', {'brewery++', 'industrial brewery', "bbb"}],
+    ['turbocan pro', {"canner++", "fluid canner++", "industrial canner", "industrial fluid canner", "canner pro"}],
+    ['hip', {"hot isostatic pressurization unit"}]
 ]
 machine_identity_groups = [IdentityGroup(name, aliases) for name, aliases in machine_identity_groups]
 

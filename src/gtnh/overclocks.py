@@ -1,7 +1,7 @@
 # Standard libraries
 import math
 from bisect import bisect_right
-from typing import Callable
+from typing import Callable, Optional
 
 # Pypi libraries
 import yaml
@@ -11,7 +11,7 @@ from termcolor import colored
 from src.data.basicTypes import Ingredient, IngredientCollection, Recipe
 
 
-def require(recipe: Recipe, requirements: tuple[str, str, str]) -> None:
+def require(recipe: Recipe, requirements: list[tuple[str, type, str]]) -> None:
     # requirements should be a list of [key, type, reason]
     # throws RuntimeError if any of the requirements are not met
     for req in requirements:
@@ -22,8 +22,6 @@ def require(recipe: Recipe, requirements: tuple[str, str, str]) -> None:
 
 
 class OverclockHandler:
-
-
     def __init__(
             self,
             parent_context, # TODO: Figure out how to type this (ProgramContext)
@@ -38,23 +36,23 @@ class OverclockHandler:
         self.voltages = self.overclock_data['voltage_data']['tiers']
         self.voltage_cutoffs = [32*pow(4, x) + 1 for x in range(len(self.voltages))]
 
-
-    def modifyGTpp(self, recipe: Recipe, MAX_PARALLEL: int = None, eut_discount: float = None) -> Recipe:
-        if recipe.machine not in self.overclock_data['GTpp_stats']:
-            raise RuntimeError('Missing OC data for GT++ multi - add to gtnhClasses/overclocks.py:GTpp_stats')
-
-        # Get per-machine boosts
-        SPEED_BOOST, EU_DISCOUNT, PARALLELS_PER_TIER = self.overclock_data['GTpp_stats'][recipe.machine]
-        SPEED_BOOST = 1/(SPEED_BOOST+1)
-
-        if eut_discount is not None:
-            EU_DISCOUNT = eut_discount
-
+    def calcGtpp(self, recipe: Recipe, MAX_PARALLEL: Optional[int] = None, SPEED_BOOST: float = 1, EU_DISCOUNT: float = 1, PARALLELS_PER_TIER: Optional[int] = 1) -> Recipe:
+        """
+            A general GT++ overclocker.
+            SPEED_BOOST: How much to speed up the recipe, additive (0 is the base/singleblock speed)
+            EU_DISCOUNT: How much to discount the EUT, multiplicative (1 is the base/singleblock EUT)
+            Parallels are calculated as follows:
+            - If MAX_PARALLEL is None, it will be calculated as (tier + 1) * PARALLELS_PER_TIER
+            - If MAX_PARALLEL is provided, it will be used as the maximum number of parallels
+        """
+        SPEED_MULT = 1/(SPEED_BOOST+1)
         # Calculate base parallel count and clip time to 1 tick
         available_eut = self.voltage_cutoffs[self.voltages.index(recipe.user_voltage)]
         if MAX_PARALLEL is None:
+            if PARALLELS_PER_TIER is None:
+                raise RuntimeError('PARALLELS_PER_TIER must be set if MAX_PARALLEL is not provided')
             MAX_PARALLEL = (self.voltages.index(recipe.user_voltage) + 1) * PARALLELS_PER_TIER
-        NEW_RECIPE_TIME = max(recipe.dur * SPEED_BOOST, 1)
+        NEW_RECIPE_TIME = max(recipe.dur * SPEED_MULT, 1)
 
         # Calculate current EU/t spend
         x = recipe.eut * EU_DISCOUNT
@@ -66,7 +64,7 @@ class OverclockHandler:
         self.parent_context.log.debug(colored(recipe.machine, 'green'))
         self.parent_context.log.debug(colored('Base GT++ OC stats:', 'yellow'))
         self.parent_context.log.debug(colored(f'{available_eut=} {MAX_PARALLEL=} {NEW_RECIPE_TIME=} {TOTAL_EUT=} {y=}', 'yellow'))
-        self.parent_context.log.debug(colored(f'{SPEED_BOOST=} {EU_DISCOUNT=} {MAX_PARALLEL=}', 'yellow'))
+        self.parent_context.log.debug(colored(f'{SPEED_MULT=} {EU_DISCOUNT=} {MAX_PARALLEL=}', 'yellow'))
 
         # Attempt to GT OC the entire parallel set until no energy is left
         while TOTAL_EUT < available_eut:
@@ -90,6 +88,108 @@ class OverclockHandler:
         return recipe
 
 
+    def modifyGTpp(self, recipe: Recipe, MAX_PARALLEL: int = None, EUT_DISCOUNT_OVERRIDE: float = None) -> Recipe:
+        """
+            A general GT++ overclocker that looks up the machine in the GTpp_stats dict.
+            It also has optional MAX_PARALLEL and EUT_DISCOUNT_OVERRIDE overrides.
+        """
+        if recipe.machine not in self.overclock_data['GTpp_stats']:
+            raise RuntimeError('Missing OC data for GT++ multi - add to gtnhClasses/overclocks.py:GTpp_stats')
+
+        # Get per-machine boosts
+        SPEED_BOOST, EU_DISCOUNT, PARALLELS_PER_TIER = self.overclock_data['GTpp_stats'][recipe.machine]
+
+        if EUT_DISCOUNT_OVERRIDE is not None:
+            EU_DISCOUNT = EUT_DISCOUNT_OVERRIDE
+
+        return self.calcGtpp(
+            recipe,
+            MAX_PARALLEL=MAX_PARALLEL,
+            SPEED_BOOST=SPEED_BOOST,
+            EU_DISCOUNT=EU_DISCOUNT,
+            PARALLELS_PER_TIER=PARALLELS_PER_TIER
+        )
+    
+    # Magnetic Flux Exhibitor
+    def modifyMFE(self, recipe: Recipe) -> Recipe:
+        require(recipe, [
+            ('electromagnet', str, 'calculating recipe duration, speed, and eu (e.g. "iron")')
+        ])
+        magnet = recipe.electromagnet.lower()
+        if magnet not in self.overclock_data['electromagnets']:
+            raise RuntimeError(f'Unknown electromagnet "{magnet}" for MFE (Magnetic Flux Exhibitor) recipe.\nAvailable: {list(self.overclock_data["electromagnets"].keys())}')
+        SPEED_BOOST, EU_DISCOUNT, PARALLELS_PER_TIER = self.overclock_data['electromagnets'][recipe.magnet]
+        return self.calcGtpp(
+            recipe,
+            MAX_PARALLEL=1,  # MFE is always single parallel
+            SPEED_BOOST=SPEED_BOOST,
+            EU_DISCOUNT=EU_DISCOUNT,
+            PARALLELS_PER_TIER=PARALLELS_PER_TIER
+        )
+
+    def modifyDissectionApparatus(self, recipe: Recipe) -> Recipe:
+        require(
+            recipe,
+            [
+                ['item_pipe_casings', str, 'calculating parallels (e.g. "tin")'],
+            ]
+        )
+        casings_dict = self.overclock_data['item_pipe_casings']
+        if recipe.item_pipe_casings not in casings_dict:
+            raise RuntimeError(f'Expected item pipe casings in {list(casings_dict)}\ngot "{recipe.item_pipe_casings}".)')
+        MAX_PARALLEL = casings_dict[recipe.item_pipe_casings] * 8
+        return self.modifyGTpp(
+            recipe,
+            MAX_PARALLEL=MAX_PARALLEL)
+
+    def modifyIndustrialAutoclave(self, recipe: Recipe) -> Recipe:
+        require(
+            recipe,
+            [
+                ['coils', str, 'calculating recipe duration (eg "nichrome").'],
+                ['pipe_casings', str, 'calculating throughput parallels (eg "steel").']
+            ]
+        )
+
+        pipe_casings = self.overclock_data['pipe_casings']
+        if recipe.pipe_casings not in pipe_casings:
+            raise RuntimeError(f'Expected autoclave pipe casings in {list(pipe_casings)}\ngot "{recipe.pipe_casings}".')
+        if recipe.coils not in self.overclock_data['coil_tiers']:
+            raise RuntimeError(f'Expected autoclave coils in {list(self.overclock_data["coil_tiers"])}\ngot "{recipe.coils}".')
+
+        casing_tier = pipe_casings[recipe.pipe_casings]
+        MAX_PARALLEL = casing_tier * 12
+        SPEED_BOOST = self.overclock_data['coil_tiers'][recipe.coils] * 0.25
+        EU_DISCOUNT = 1 * (12 - casing_tier) / 12  # 1 is the base EUT, 12 is the max tier
+
+        return self.calcGtpp(
+            recipe,
+            MAX_PARALLEL=MAX_PARALLEL,
+            SPEED_BOOST=SPEED_BOOST,
+            EU_DISCOUNT=EU_DISCOUNT,
+            PARALLELS_PER_TIER=1
+        )
+    
+    def modifyFluidShaper(self, recipe: Recipe) -> Recipe:
+        width_expansions = 0
+        if hasattr(recipe, 'width_expansions'):
+            width_expansions = recipe.width_expansions
+        else:
+            print("Warning: Fluid Shaper recipe missing 'width_expansions' attribute. It's technically optional, but you probably forgot it.")
+        
+        parallels_per_tier = 2 + width_expansions * 3
+        
+        return self.calcGtpp(
+            recipe,
+            MAX_PARALLEL=None,  # Fluid Shaper has no max parallel, it just scales with width_expansions
+            SPEED_BOOST=2.0,
+            EU_DISCOUNT=0.8,
+            PARALLELS_PER_TIER=parallels_per_tier
+        )
+
+
+
+
     def modifyChemPlant(self, recipe: Recipe) -> Recipe:
         require(
             recipe,
@@ -104,8 +204,8 @@ class OverclockHandler:
         if recipe.pipe_casings not in chem_plant_pipe_casings:
             raise RuntimeError(f'Expected chem pipe casings in {list(chem_plant_pipe_casings)}\ngot "{recipe.pipe_casings}". (More are allowed, I just haven\'t added them yet.)')
 
-        throughput_multiplier = chem_plant_pipe_casings[recipe.pipe_casings]
-        coil_multiplier = self.overclock_data['coil_multipliers'][recipe.coils]
+        throughput_multiplier = chem_plant_pipe_casings[recipe.pipe_casings] * 2
+        coil_multiplier = self.overclock_data['coil_tiers'][recipe.coils] * 0.5
 
         # Add catalyst
         known_catalysts = {
@@ -175,7 +275,7 @@ class OverclockHandler:
         )
         oc_count = self.calculateStandardOC(recipe)
         recipe.eut = recipe.eut * 4**oc_count
-        recipe.dur = recipe.dur / 2**oc_count / self.overclock_data['coil_multipliers'][recipe.coils]
+        recipe.dur = recipe.dur / 2**oc_count / (self.overclock_data['coil_tiers'][recipe.coils] * 0.5)
 
         return recipe
 
@@ -184,7 +284,7 @@ class OverclockHandler:
         recipe.eut = 4
         recipe.dur = 500
         recipe = self.modifyStandard(recipe)
-        coil_tiering = {name: int(multiplier*2)-1 for name, multiplier in self.overclock_data['coil_multipliers'].items()}
+        coil_tiering = {name: int(multiplier)-1 for name, multiplier in self.overclock_data['coil_tiers'].items()}
         batch_size = 8 * 2**max(4, coil_tiering[recipe.coils])
         recipe.I *= batch_size
         recipe.O *= batch_size
@@ -400,7 +500,7 @@ class OverclockHandler:
         user_voltage = self.voltages.index(recipe.user_voltage)
         eut_discount = 1 - 0.04 * (user_voltage + 1)
 
-        recipe = self.modifyGTpp(recipe, MAX_PARALLEL=24, eut_discount=eut_discount)
+        recipe = self.modifyGTpp(recipe, MAX_PARALLEL=24, EUT_DISCOUNT_OVERRIDE=eut_discount)
 
         return recipe
 
@@ -474,7 +574,11 @@ class OverclockHandler:
             'boldarnator': self.modifyGTpp,
             'dangote - distillery': self.modifyGTpp,
             'thermic heating device': self.modifyGTpp,
-            'volcanus': self.modifyGTpp,
+            'large elecric compressor': self.modifyGTpp,
+            'large electric compressor': self.modifyGTpp,
+            'big barrel brewery': self.modifyGTpp,
+            'turbocan pro': self.modifyGTpp,
+            'hip': self.modifyGTpp,
 
             # Special GT++ multis
             'dangote - distillation tower': lambda rec: self.modifyGTpp(rec, MAX_PARALLEL=12),
@@ -487,6 +591,14 @@ class OverclockHandler:
             'isamill grinding machine': self.modifyPerfect,
             "volcanus": self.modifyVolcanus,
             "digester": self.modifyPerfect,
+            # TODO: Industrial Precision Lathe, Large Fluid Extractor, Hyper-Intensity Laser Engraver,
+            # Psuedostable Black Hole Containment Unit, Godforge stuff.
+            'magnetic flux exhibitor': self.modifyMFE,
+            'dissection apparatus': self.modifyDissectionApparatus,
+            'industrial autoclave': self.modifyIndustrialAutoclave,
+            'fluid shaper': self.modifyFluidShaper,
+            'neutronium compressor': lambda rec: self.modifyGTpp(rec, MAX_PARALLEL=8)
+
         }
 
         if recipe.machine in machine_overrides:
