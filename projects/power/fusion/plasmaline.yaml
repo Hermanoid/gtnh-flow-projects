@@ -17,14 +17,14 @@
   eut: 42
   dur: 1.2
 
-- m: fluid extractor
-  tier: ZPM
-  I:
-    bedrockium ingot: 1
-  O:
-    molten bedrockium: 144
-  eut: 140
-  dur: 1.2
+# - m: fluid extractor
+#   tier: ZPM
+#   I:
+#     bedrockium ingot: 1
+#   O:
+#     molten bedrockium: 144
+#   eut: 140
+#   dur: 1.2
 
 - m: abs
   tier: ZPM
@@ -51,12 +51,36 @@
   I:
     tungsten titanium carbide dust: 3
     terra crystal powder: 1
-    ignis crystal dust: 1
+    ignis crystal powder: 1
     perditio crystal powder: 1
   O:
     molten titansteel: 864
   eut: 491520
   dur: 480
+
+- m: industrial mixer
+  tier: UV
+  I:
+    ignis crystal powder: 1
+    terra crystal powder: 1
+    aqua crystal powder: 1
+    aer crystal powder: 1
+  O:
+    energy crystal powder: 4
+  eut: 1920
+  dur: 13
+
+- m: abs
+  tier: UV
+  I:
+    thorium 232 dust: 4
+    energy crystal powder: 4
+    ordo crystal powder: 1
+    perditio crystal powder: 1
+  O:
+    molten arcanite: 1440
+  eut: 7680
+  dur: 300
 
 - m: fluid extractor
   tier: ZPM
@@ -152,7 +176,7 @@
   tier: UHV
   I:
     neon plasma: 144
-    molten bedrockium: 144
+    molten arcanite: 144
   O:
     force plasma: 1000
   eut: 30720
