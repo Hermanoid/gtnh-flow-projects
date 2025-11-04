@@ -40,6 +40,13 @@ pipe_casings:
   titanium: 6
   tungstensteel: 8
 
+draconic_fusion_casings:
+  bloody ichorium: 1
+  draconium: 2
+  wyvern: 3
+  awakened draconium: 4
+  chaotic: 5
+
 
 # [speed X, EU/t discount, parallels per tier]
 GTpp_stats:

@@ -426,6 +426,31 @@ class OverclockHandler:
         recipe.eut = recipe.eut * 4**oc_count
         recipe.dur = recipe.dur / 4**oc_count
         return recipe
+    
+    # perfect overclocks and normal EU overclocks (similar to EBF)
+    def modifyDraconic(self, recipe: Recipe) -> Recipe:
+        require(
+            recipe,
+            [
+                ['casing_required', str, 'the recipe casing requirement (eg draconium)'],
+                ['casing', str, 'calculating perfect OCs (eg "draconium").'],
+            ]
+        )
+        base_casing:int = self.overclock_data['draconic_fusion_casings'][recipe.casing_required]
+        user_casing:int = self.overclock_data['draconic_fusion_casings'][recipe.casing]
+
+        poc_count_max = user_casing - base_casing
+        if poc_count_max < 0:
+            raise RuntimeError(f'Recipe has negative overclock! Min casing is tier {base_casing}, given OC casing is tier {user_casing}.\n{recipe}')
+        oc_count_max = self.calculateStandardOC(recipe)
+        poc_count = min(poc_count_max, oc_count_max)
+        oc_count = oc_count_max - poc_count
+
+
+        # apply overclocks
+        recipe.eut = recipe.eut * 4**oc_count_max
+        recipe.dur = recipe.dur / (4**poc_count * 2**oc_count)
+        return recipe
 
 
     def getOverclockFunction(self, recipe: Recipe) -> Callable[[Recipe], Recipe]:
@@ -486,11 +511,15 @@ class OverclockHandler:
             'isamill grinding machine': self.modifyPerfect,
             "volcanus": self.modifyVolcanus,
             "digester": self.modifyPerfect,
+
+            # Special other multis
+            'draconic evolution fusion crafter': self.modifyDraconic
         }
 
         if recipe.machine in machine_overrides:
             return machine_overrides[recipe.machine](recipe)
         else:
+            self.parent_context.log.warn(colored(f"Unknown machine {recipe.machine}. Defaulting to standard OC rules", 'red'))
             return self.modifyStandard(recipe)
 
 
