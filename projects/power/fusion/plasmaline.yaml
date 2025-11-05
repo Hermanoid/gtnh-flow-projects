@@ -121,7 +121,6 @@
   eut: 144
   dur: 1.2
 
-
 # PLASMA (Roughly in order)
 
 - m: fusion
@@ -135,7 +134,7 @@
   dur: 0.8
   mk: 3
   start: 1
-  
+
 - m: fusion
   tier: UHV
   I:
@@ -231,7 +230,7 @@
   dur: 1.6
   mk: 3
   start: 2
-  
+
 - m: fusion
   tier: UHV
   I:
@@ -299,17 +298,17 @@
     molten tartarite: 2
   O:
     celestial tungsten plasma: 1000
-  number: 64
+  number: 128
   eut: 491520
-  dur: 0.8
+  dur: 0.4
   mk: 3
   start: 3
 
 - m: Huge Infinity XL Turbo
   tier: LV
   I:
-    celestial tungsten plasma: 911
+    celestial tungsten plasma: 955
   O:
-    eu: 1934964000
+    eu: 2062800000
   dur: 1
   eut: 0
